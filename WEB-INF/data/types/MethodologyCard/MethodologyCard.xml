@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<type name="MethodologyCard" superclass="com.jalios.jcms.Content" debatable="false" unitFieldEdition="true" audienced="false" categoryTab="true" readRightTab="true" updateRightTab="true" templateTab="true" workflowTab="true" advancedTab="true" titleML="true" hbm="true" authgroups="||||||" categories="c_5557">
+  <title ml="true">
+    <label xml:lang="fr">Titre</label>
+    <label xml:lang="en">Title</label>
+  </title>
+  <fields>
+    <field name="typeMethodology" editor="category" required="true" compactDisplay="false" type="java.util.TreeSet" chooser="tree" exclusive="false" root="$jcmsplugin.archives.methodologyCard.typeMethodology.root" ml="false" descriptionType="text" searchable="false" html="false" checkHtml="true" displayRoot="false">
+      <label xml:lang="fr">Type</label>
+    </field>
+    <field name="summary" editor="textarea" required="false" compactDisplay="false" type="String" searchable="false" rows="5" cols="80" ml="true" wiki="true" wikiwyg="true" html="false" checkHtml="true" descriptionType="text">
+      <label xml:lang="fr">Chapo</label>
+    </field>
+    <field name="description" editor="wysiwyg" required="false" type="String" searchable="false" wiki="true" rows="5" cols="80" compactDisplay="false" ml="true" descriptionType="text" html="false" checkHtml="true" wikiwyg="false" toolbars="basic,format" inline="true">
+      <label xml:lang="fr">Description</label>
+      <label xml:lang="en">Description</label>
+    </field>
+    <field name="mainIllustration" editor="image" required="false" compactDisplay="false" type="String" searchable="false" size="80" maxlength="500" ml="false" imageMap="false">
+      <label xml:lang="fr">Illustration</label>
+    </field>
+    <field name="mainIllustrationLegend" editor="textfield" required="false" compactDisplay="false" type="String" searchable="false" size="80" ml="true" html="false" checkHtml="true">
+      <label xml:lang="fr">Légende illustration</label>
+    </field>
+    <field name="mainIllustrationCopyright" editor="textfield" required="false" compactDisplay="false" type="String" searchable="false" size="80" ml="true" html="false" checkHtml="true">
+      <label xml:lang="fr">Copyright illustration</label>
+    </field>
+  </fields>
+  <label xml:lang="fr">Fiche méthodologique</label>
+</type>
+

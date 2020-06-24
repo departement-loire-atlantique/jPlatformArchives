@@ -1,0 +1,9 @@
+# ------------------------------------------------------------
+#  Catégories racines des types de contenu
+# ------------------------------------------------------------
+
+# Fiche méthodologique
+$jcmsplugin.archives.methodologyCard.typeMethodology.root: c_5804
+
+# Paléographie
+$jcmsplugin.archives.paleography.levels.root: c_5805

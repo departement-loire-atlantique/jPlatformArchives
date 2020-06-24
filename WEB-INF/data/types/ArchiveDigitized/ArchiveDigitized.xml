@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<type name="ArchiveDigitized" superclass="com.jalios.jcms.Content" debatable="false" unitFieldEdition="true" audienced="false" categoryTab="true" readRightTab="true" updateRightTab="true" templateTab="true" workflowTab="true" advancedTab="true" titleML="true" hbm="true" authgroups="||||||">
+  <title ml="true">
+    <label xml:lang="fr">Titre</label>
+    <label xml:lang="en">Title</label>
+  </title>
+  <fields>
+    <field name="description" editor="textarea" required="true" type="String" searchable="true" abstract="true" wiki="true" rows="5" cols="80" compactDisplay="false" ml="true">
+      <label xml:lang="fr">Description</label>
+      <label xml:lang="en">Description</label>
+    </field>
+    <field name="iframe" editor="link" required="true" compactDisplay="false" type="com.jalios.jcms.portlet.PortalElement" parent="false" ml="false" descriptionType="text" searchable="false" html="false" checkHtml="true">
+      <label xml:lang="fr">iFrame</label>
+    </field>
+    <field name="mainIllustration" editor="image" required="false" compactDisplay="false" type="String" searchable="false" size="80" maxlength="500" ml="false" imageMap="false" descriptionType="text" dataimage="true" html="false" checkHtml="true" resize="false" resizeWidth="100" resizeHeight="75">
+      <label xml:lang="fr">Illustration</label>
+    </field>
+    <field name="mainIllustrationLegend" editor="textfield" required="false" compactDisplay="false" type="String" searchable="false" size="80" ml="true" html="false" checkHtml="true">
+      <label xml:lang="fr">Légende illustration</label>
+    </field>
+    <field name="mainIllustrationCopyright" editor="textfield" required="false" compactDisplay="false" type="String" searchable="false" size="80" ml="true" html="false" checkHtml="true">
+      <label xml:lang="fr">Copyright illustration</label>
+    </field>
+    <field name="freePartTitles" editor="textfield" required="false" compactDisplay="false" type="String[]" searchable="false" size="80" ml="true" html="false" checkHtml="true" descriptionType="text" tabGroup="freeParts">
+      <label xml:lang="fr">Titre encart libre</label>
+    </field>
+    <field name="freePartContents" editor="wysiwyg" required="false" compactDisplay="false" type="String[]" searchable="false" rows="16" cols="100" ml="true" toolbars="basic,format" checkHtml="true" inline="true" descriptionType="text" tabGroup="freeParts" html="false">
+      <label xml:lang="fr">Contenu encarts libres</label>
+    </field>
+    <field name="youtubeUrls" editor="url" required="false" compactDisplay="false" type="String[]" searchable="false" size="80" maxlength="500" ml="false" openWindow="false" pattern="^((http)|(https)|(ftp)|(mailto)):.*">
+      <label xml:lang="fr">Url Youtube</label>
+    </field>
+    <field name="dmCloudPromoIds" editor="textfield" required="false" compactDisplay="false" type="String[]" searchable="false" size="80" ml="false" html="false" checkHtml="true">
+      <label xml:lang="fr">Identifiant dmCloud</label>
+    </field>
+    <field name="mediaPromo" editor="link" required="false" compactDisplay="false" type="generated.CarouselElement[]" ml="false" descriptionType="text" searchable="false" html="false" checkHtml="true">
+      <label xml:lang="fr">Media Promo</label>
+    </field>
+    <field name="activerLesConditionsDutilisation" editor="boolean" required="false" compactDisplay="false" type="boolean" default="on" ml="false" descriptionType="text" searchable="false" html="false" checkHtml="true">
+      <label xml:lang="fr">Activer les conditions d'utilisation</label>
+      <onLabel xml:lang="fr">Oui</onLabel>
+      <offLabel xml:lang="fr">Non</offLabel>
+    </field>
+  </fields>
+  <label xml:lang="fr">Fond d'archive numérisé</label>
+</type>
+

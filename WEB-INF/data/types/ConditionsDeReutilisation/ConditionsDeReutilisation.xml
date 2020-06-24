@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<type name="ConditionsDeReutilisation" superclass="com.jalios.jcms.Content" debatable="false" unitFieldEdition="true" audienced="false" categoryTab="true" readRightTab="true" updateRightTab="true" templateTab="true" workflowTab="true" advancedTab="true" titleML="true">
+  <label xml:lang="fr">Conditions de réutilisation</label>
+  <title ml="true">
+    <label xml:lang="fr">Titre</label>
+    <label xml:lang="en">Title</label>
+  </title>
+  <fields>
+    <field name="conditions" editor="wysiwyg" required="true" type="String" searchable="true" wiki="true" rows="5" cols="80" compactDisplay="false" ml="true" descriptionType="text" html="false" checkHtml="true" wikiwyg="false" toolbars="basic,format,style,font" inline="true">
+      <label xml:lang="fr">Conditions</label>
+      <label xml:lang="en">Description</label>
+    </field>
+    <field name="fontsDarchiveNumerise" editor="link" required="false" compactDisplay="false" type="generated.ArchiveDigitized" parent="false" ml="false" hidden="true" descriptionType="text" searchable="false" html="false" checkHtml="true">
+      <label xml:lang="fr">Fonts d'archive numerisé</label>
+    </field>
+  </fields>
+</type>
+

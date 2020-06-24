@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plugin PUBLIC "-//JALIOS//DTD JCMS-PLUGIN 1.7//EN" "http://support.jalios.com/dtd/jcms-plugin-1.7.dtd">
+
+<plugin name="ArchivesPlugin" version="0.1" author="DEP44" license="DEP44" initialize="true" jcms="" order="0" url="" jsync="true" appserver="">
+
+  <label xml:lang="fr">Archives</label>
+  <description xml:lang="fr">Module pour le site des Archives</description>
+
+  <types>
+    <type name="ArchiveDigitized"></type>
+    <type name="ConditionsDeReutilisation"></type>
+    <type name="MethodologyCard"></type>
+    <type name="Paleography"></type>
+    
+    <templates type="ArchiveDigitized">
+        <template name="default" file="doArchiveDigitizedFullDisplay.jsp" usage='full'>
+          <label xml:lang="fr">DS44 : gabarit générique simple</label>
+        </template>
+    </templates>
+    <templates type="ConditionsDeReutilisation">
+        <template name="default" file="doConditionsDeReutilisationFullDisplay.jsp" usage='full'>
+          <label xml:lang="fr">DS44 : gabarit générique simple</label>
+        </template>
+    </templates>
+    <templates type="MethodologyCard">
+        <template name="default" file="doMethodologyCardFullDisplay.jsp" usage='full'>
+          <label xml:lang="fr">DS44 : gabarit générique simple</label>
+        </template>
+    </templates>
+    <templates type="Paleography">
+        <template name="default" file="doPaleographyFullDisplay.jsp" usage='full'>
+          <label xml:lang="fr">DS44 : gabarit générique simple</label>
+        </template>
+    </templates>            
+  </types>
+    
+  <private-files>
+    <file path="properties/plugin.prop" />
+    <file path="properties/languages/fr.prop" />
+  </private-files>
+  <public-files>
+    <directory path="docs" />
+    <directory path="jsp" />
+    <directory path="types" /> 
+  </public-files>
+</plugin>
+

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<type name="Paleography" superclass="com.jalios.jcms.Content" debatable="false" unitFieldEdition="true" audienced="false" categoryTab="true" readRightTab="true" updateRightTab="true" templateTab="true" workflowTab="true" advancedTab="true" titleML="true" hbm="true" authgroups="||||||" categories="c_5558">
+  <title ml="true">
+    <label xml:lang="fr">Titre</label>
+    <label xml:lang="en">Title</label>
+  </title>
+  <fields>
+    <field name="levels" editor="category" required="true" compactDisplay="false" type="java.util.TreeSet" chooser="tree" exclusive="false" root="$jcmsplugin.archives.paleography.levels.root" ml="false" descriptionType="text" searchable="false" html="false" checkHtml="true" displayRoot="false">
+      <label xml:lang="fr">Niveaux</label>
+    </field>
+    <field name="textRecall" editor="image" required="true" compactDisplay="false" type="String" searchable="false" size="80" maxlength="500" ml="false" imageMap="false">
+      <label xml:lang="fr">Rappel du texte</label>
+    </field>
+    <field name="transcriptionDate" editor="date" required="false" compactDisplay="false" type="java.util.Date" future="true" past="true" dateOnly="false" dateFormat="short">
+      <label xml:lang="fr">Date de transcription</label>
+    </field>
+    <field name="transcription" editor="wysiwyg" required="false" compactDisplay="false" type="String" searchable="true" rows="16" cols="100" ml="true" toolbars="basic,format" checkHtml="true" inline="true">
+      <label xml:lang="fr">Transcription</label>
+    </field>
+  </fields>
+  <label xml:lang="fr">Paléographie</label>
+</type>
+
