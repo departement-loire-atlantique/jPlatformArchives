@@ -1,0 +1,25 @@
+env:
+  global:
+  - secure: VCoLNIncJT6eQk6MnWRnEwQyRTIfXKNHo3IKQaMJYBCpogK2yEV8sgwnaiKNO1/kMUwir25UMkBbI48uMJpXA+UmyAmuZILjUxxOTtlBGvPRauGgcxdKOzVS96VFhSuSSzzGO/iueHV2mnALENpByCAhDfuiq8HNj3xdyDGNT4DUgJu5iUKfVwg/JpftHQM+dUADy81UKDfzFzNru0yhFampw1cpSI+xcnNkn0GdT/2k5AbOZ6uMG3vuz4bkxM+p1iOQrEWwtgQdeI6+Iv+KAtldzK30fQCLBLb8zsI8w227Qt+CgStzVYgsqciVJz3U0al2u3sAg8p6/pu8huIs7xV02bSQGlOjuHr/i4OM3as25/+Nbr7ye1cUf1vmpxXK37U5uBXYuKdcqqa+Cz9v2oX9PzAwUMszNZd6P6gaA81YicXt5xuKv6lIuaGdbMj8e/FWg2haoVPdzxH+lGi5UfKsgKlDtJ+x7A5Tj+wCL3gq2WZPWgerpKmVe2uNZokGv+UFgCANM0EFGiBPgK4w7G5Nfe7Wy6bD+0DbcN7X/23PI4R4OAUhYYRPvqxrTNVZagkUJxmKrYV0FAiHyfCPvZcBbRs0epkMQLayM2dpmONl3Aezq68sTwDhyFAnPG/M8g9pWgSA1RXMiT8n7IpajP9cS49ovhFw89lDCDpA+e0=
+  - secure: bRyLgAPHoqgc5nAwlJ+UUlZ84W+1x8rIOtbgm7JmLWuRIoMTaNZgYz8X0wOfTYgN4LImpphVf+n2rVloIZtJtPUred7/391+XBGJr7M8tZ2u+0efem8OoUQ94s6Qu80Kh1U66LpYmPu/RkXPdjIcucIyHTSoxDjx3BqqlevdfeXQGblvkG09ZfHvzE+EgqJ66ZtKacI3Z0fOrpcYj2GEXUCVAMIA6t5QHwVQdvnPFB1/7IldVyGMEJrjwtfrK0CvDG0zEzG6c25R9IN3YEPiAujgUGPZrCMIsI3O+YZxsOq4cB61ZjVhHGUd7xi2PJpmkv0hk0vPpJfHXxjQD/aO2YJjIfQ4cZl8w6I/YPpOm0/zrPxFG8nQAZhA0KbdX1jbKpwO6W37QSFm1YaarBUlPQ07F7tv+7z7Sgrw8ToTfDlsYpFP6OhOz3GCeCGp8Fk0NLXX0G7aI8s6pHdmEy+LUIF+QUeea/dU4/OuB7vJUAGUNXbQjc0lQ8IrEmpc+oJRAJGzhKSOpZihPbUeIrObQGfD51QNzbYwFcOAhdMnxiQAcLTELqwo3b5uHBJq9egwe+hoymR2nZGO9SxvNcoeVm1Tj+mfugU8Gj8ikZWjKOP4wjSvTup0uRKOxvZPV0mJZI+j1p6e/T0+FnkMU/94PLsUMu6LVACSaWUIDN4BCbQ=
+
+services:
+- docker
+
+before_script:
+- echo "$DOCKER_PASS" | docker login --username $DOCKER_USER --password-stdin
+- docker pull julienbayle/jplatformbuild
+
+script:
+- docker run -v ${TRAVIS_BUILD_DIR}:/root/source --name buildimage -t julienbayle/jplatformbuild
+- docker cp buildimage:/root/dist ${TRAVIS_BUILD_DIR}/
+- export FILE_NAME=`ls ${TRAVIS_BUILD_DIR}/dist/*.zip`
+
+deploy:
+  provider: releases
+  api_key:
+    secure: O4tEM4kR/KBIkJueW09AqTq6A/aqdhBouei5fDxfB4AmJYfHTP8wkL0oo4GF8bZxo6qba9yjAKn7hPfvXOlJbKbbJ1DmmPBk4sbqw4QseQSL/iZUQMx8X7h8+ll3cmFzztXKNSi0uI/jXfwIw1s2s0v0GzDA+CQrbcZkHV+5mXTBP8DXus/uiBBUDcG/rALsq01pHbOxc4Wm9frtYOCVlo/yaURoVYnPzZGfBAhIKIShCnYtKbWof8S7tlZKIwF2CZKVYDlv4y9VSrXeZXq+qyxDD8gMOOJzlQ1esI422iCF1XAivtkfPv0xc8g7VpcrjJGdBdzb6OcJDbrLIR7IG9aClIEDy9zg6ofWTxgJVl4kT12d/YPoWalfnzLllLojhFVeTynvPtafkt6WV3gyKBTB6nebQlhEP9OdEaEQZOBeo+x1i10moFsqBMCyYTSrx+N7ArBqo81zUWETj4awc2FM5TVxF9K5eQCpxSs+razBhuxiUSk/uRGXTrGDAe1NkUxiWr7IPAKID3g+1BUgskmNaOwqqgS3KKVr+nDmDMCEwWSQ3Vr7Zr5BiU0YTjuaQHSeZYo/t+BjU1z4dVEHJFP105r2IYTI4Is0Qj99AupSCoje7s0HTmjzwzsIQSJdD0MlsA5L8j7wCkuimRtnG1awrg7lRGM/79QPzFH+pL0=
+  file: "${FILE_NAME}"
+  skip_cleanup: true
+  on:
+    tags: true
