@@ -11,9 +11,6 @@
     <field name="textRecall" editor="image" required="true" compactDisplay="false" type="String" searchable="false" size="80" maxlength="500" ml="false" imageMap="false">
       <label xml:lang="fr">Rappel du texte</label>
     </field>
-    <field name="transcriptionDate" editor="date" required="false" compactDisplay="false" type="java.util.Date" future="true" past="true" dateOnly="false" dateFormat="short">
-      <label xml:lang="fr">Date de transcription</label>
-    </field>
     <field name="transcription" editor="wysiwyg" required="false" compactDisplay="false" type="String" searchable="true" rows="16" cols="100" ml="true" toolbars="basic,format" checkHtml="true" inline="true">
       <label xml:lang="fr">Transcription</label>
     </field>
