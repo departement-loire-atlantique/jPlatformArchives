@@ -7,3 +7,7 @@ $jcmsplugin.archives.methodologyCard.typeMethodology.root: c_5804
 
 # Paléographie
 $jcmsplugin.archives.paleography.levels.root: c_5805
+
+# Content template - cards
+media.data-template.card.Paleography: /plugins/ArchivesPlugin/jsp/cards/doPaleographyCard.jsp
+media.data-template.cardFull.MethodologyCard: /plugins/ArchivesPlugin/jsp/cards/doMethodologyCardCard.jsp
