@@ -28,10 +28,10 @@ String[] nameCategories = SocleUtils.formatCategories(pub.getFirstLevels(loggedM
             </p>
             <hr class="mbs"aria-hidden="true" />
             <jalios:if predicate="<%= Util.notEmpty(nameCategories) && nameCategories.length >= 1 %>">
-                <jalios:if prediacte="<%= Util.notEmpty(nameCategories[0]) %>">
+                <jalios:if predicate="<%= Util.notEmpty(nameCategories[0]) %>">
                     <p class="ds44-docListElem ds44-mt-std"><i class="icon icon-tag ds44-docListIco" aria-hidden="true"></i><%= nameCategories[0] %></p>
                 </jalios:if>
-                <jalios:if prediacte="<%= nameCategories.length > 1 && Util.notEmpty(nameCategories[1]) %>">
+                <jalios:if predicate="<%= nameCategories.length > 1 && Util.notEmpty(nameCategories[1]) %>">
                     <p class="ds44-docListElem ds44-mt-std"><i class="icon icon-tag ds44-docListIco" aria-hidden="true"></i><%= nameCategories[1] %></p>
                 </jalios:if>
             </jalios:if>
