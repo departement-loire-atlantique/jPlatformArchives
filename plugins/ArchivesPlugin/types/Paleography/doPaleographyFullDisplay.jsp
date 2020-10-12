@@ -7,8 +7,7 @@
 %><% Paleography obj = (Paleography)request.getAttribute(PortalManager.PORTAL_PUBLICATION); %><%
 %><%@ include file='/front/doFullDisplay.jspf' %>
 
-
-<main role="main" id="content">
+<main role="main" id="contentPaleography">
    <article class="ds44-container-large">
       <div class="ds44-lightBG">
          <div class="ds44-inner-container ds44--xl-padding-t ds44--m-padding-b ds44-mobile-reduced-pt">
@@ -16,7 +15,7 @@
                <jalios:if predicate='<%= Util.notEmpty(Channel.getChannel().getProperty("jcmsplugin.socle.portlet.filariane.id")) %>'>
                     <jalios:include id='<%=Channel.getChannel().getProperty("jcmsplugin.socle.portlet.filariane.id") %>'/>
                </jalios:if>
-               <h1 class="h1-like mbl mts ds44-mobile-reduced-mb ds44-mobile-reduced-mt" id="titrePaleographie"><%= obj.getTitle() %></h1>
+               <h1 class="h1-like mbl mts ds44-mobile-reduced-mb ds44-mobile-reduced-mt" id="titrePaleography"><%= obj.getTitle() %></h1>
             </div>
          </div>
       </div>
@@ -24,26 +23,27 @@
          <div class="ds44-inner-container">
             <div class="ds44-grid12-offset-1">
                <jalios:if predicate="<%= Util.notEmpty(obj.getTextRecall()) %>">
-               <ds:figurePicture format="unchanged" image="<%= obj.getTextRecall() %>" alt="<%= obj.getTitle() %>" figureCss="ds44-legendeContainer ds44-imgLoupe" imgCss="ds44-w100"/>
+                   <ds:figurePicture imgCss="ds44-w100" pictureCss="ds44-legendeContainer ds44-imgLoupe" format="principale" image="<%= obj.getTextRecall() %>" imageMobile="<%= obj.getTextRecall() %>"/>
                </jalios:if>
                <div class="ds44-theme ds44-flex-valign-center ds44-flex-container ds44-fse ds44--l-padding ">
-                  <span class="ds44-docListElem"><i class="icon icon-tag ds44-docListIco" aria-hidden="true"></i><%= SocleUtils.formatCategories(obj.getLevels(member)) %></span>
+                  <span class="ds44-docListElem"><i class="icon icon-tag ds44-docListIco" aria-hidden="true"></i><%= SocleUtils.formatCategories(obj.getLevels(loggedMember)) %></span>
                </div>
             </div>
          </div>
       </div>
-      <section class="ds44-contenuArticle" id="section1">
+      <section class="ds44-contenuArticle" id="sectionPaleography">
          <div class="ds44-inner-container ds44-mtb3">
             <div class="ds44-grid12-offset-2">
                <ul class="ds44-collapser">
                   <li class="ds44-collapser_element">
-                     <button type="button" class="ds44-collapser_button" aria-expanded="false">Afficher la transcription<i class="icon icon-down" aria-hidden="true"></i>
+                     <button type="button" class="ds44-collapser_button">Afficher la transcription<i class="icon icon-down" aria-hidden="true"></i>
                      </button>
-                     <div class="ds44-collapser_content" aria-hidden="true" style="visibility: hidden;">
+                     <div class="ds44-collapser_content">
                         <ul class="ds44-list ds44-collapser_content--level2">
                            <li>
-                              <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque at efficitur turpis, ut euismod elit. Nam turpis orci, suscipit et arcu id, rhoncus maximus augue. Cras bibendum congue odio, in bibendum ante euismod sed. Maecenas sodales ipsum at neque aliquet pharetra ac vitae eros. Donec malesuada, purus a tincidunt tristique, felis nisi dictum nulla, quis sagittis enim turpis sed eros. Cras auctor sodales orci ut accumsan. Nullam ut facilisis lacus, in porta elit. Nulla nec condimentum massa, in sollicitudin massa. Pellentesque in laoreet tellus. Curabitur pulvinar, elit in ornare sodales, mauris mauris tincidunt purus, eget tempor sem diam quis ante. Suspendisse porttitor dignissim aliquet. Vivamus volutpat massa at lacus efficitur, ac porta quam dignissim. Ut rhoncus, est et sagittis imperdiet, ex diam rutrum risus, vel tempus ex ligula sed libero. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nam malesuada, est ut pharetra bibendum, libero ex convallis magna, nec aliquet justo risus quis nibh. Vivamus vehicula at diam at pretium.</p>
-                              <p> Ut pellentesque tempus nisi quis hendrerit. Donec at iaculis enim, ac sodales orci. Donec sagittis sapien vitae turpis hendrerit aliquam. Mauris rutrum orci a laoreet bibendum. Vivamus vitae vulputate justo, quis sagittis risus. Suspendisse dictum ultricies turpis nec feugiat. Vestibulum in nunc non mauris congue finibus nec sed eros. Aenean id nisl nunc. Pellentesque faucibus quis est sit amet dapibus. Morbi et justo augue. Phasellus iaculis at ipsum ut luctus. Proin efficitur sed lacus a iaculis. </p>
+                           <jalios:wysiwyg>
+                            <%= obj.getTranscription() %>
+                           </jalios:wysiwyg>
                            </li>
                         </ul>
                      </div>
@@ -52,204 +52,83 @@
             </div>
          </div>
       </section>
-      <section class="ds44-partage ds44-flex-container ds44-flex-align-center pal ds44-mb35">
-         <h2 class="h4-like" id="idPartageRS">Partagez cette page :</h2>
-         <ul class="ds44-list ds44-flex-container ds44-flex-align-center ds44-fse">
-            <li><a href="https://www.facebook.com/sharer/sharer.php?u=" target="_blank" class="ds44-rsLink" title="Partager cette page sur Facebook - nouvelle fenêtre" data-statistic="{&quot;name&quot;: &quot;declenche-evenement&quot;,&quot;category&quot;: &quot;Partage page&quot;,&quot;action&quot;: &quot;Facebook&quot;}"><i class="icon icon-facebook icon--sizeL" aria-hidden="true"></i><span class="visually-hidden">Partager cette page sur Facebook</span></a></li>
-            <li><a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Floire-atlantique.fr%2F&amp;text=Informations+pratiques+et+services+en+ligne&amp;hashtags=loireAtlantique" target="_blank" class="ds44-rsLink" title="Partager cette page sur Twitter - nouvelle fenêtre" data-statistic="{&quot;name&quot;: &quot;declenche-evenement&quot;,&quot;category&quot;: &quot;Partage page&quot;,&quot;action&quot;: &quot;Twitter&quot;}"><i class="icon icon-twitter icon--sizeL" aria-hidden="true"></i><span class="visually-hidden">Partager cette page sur Twitter</span></a></li>
-            <li><a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3A%2F%2Floire-atlantique.fr%2F&amp;title=Lean&amp;summary=Informations+pratiques+et+services+en+ligne&amp;source=Loire-Atlantique" target="_blank" class="ds44-rsLink" title="Partager cette page sur Linkedin - nouvelle fenêtre" data-statistic="{&quot;name&quot;: &quot;declenche-evenement&quot;,&quot;category&quot;: &quot;Partage page&quot;,&quot;action&quot;: &quot;Linkedin&quot;}"><i class="icon icon-linkedin icon--sizeL" aria-hidden="true"></i><span class="visually-hidden">Partager cette page sur Linkedin</span></a></li>
-            <li><a href="mailto:?subject={subject}&amp;body={body}" target="_blank" class="ds44-rsLink" title="Partager cette page par email - nouvelle fenêtre" data-statistic="{&quot;name&quot;: &quot;declenche-evenement&quot;,&quot;category&quot;: &quot;Partage page&quot;,&quot;action&quot;: &quot;Loire-Atlantique&quot;}"><i class="icon icon-mail icon--sizeL" aria-hidden="true"></i><span class="visually-hidden">Partager cette page par email</span></a></li>
-         </ul>
-      </section>
+      
+      <%-- Partagez cette page --%>
+      <%@ include file="/plugins/SoclePlugin/jsp/portal/socialNetworksShare.jspf" %>
+      
    </article>
-   <section class="ds44-container-fluid ds44-lightBG ds44-wave-white ds44--xl-padding-tb">
-      <header class="txtcenter ds44--xl-padding-tb">
-         <h2 class="h2-like" id="idTitre5">Sur le même thème</h2>
-      </header>
-      <div class="ds44-container-large">
-         <div class="mod--hidden ds44-list swipper-carousel-wrap ds44-posRel" data-nb-visible-slides="4">
-            <div class="swiper-container swiper-container-initialized swiper-container-horizontal">
-               <ul class="swiper-wrapper ds44-list has-gutter-l ds44-carousel-swiper" style="transform: translate3d(-1333px, 0px, 0px); transition-duration: 0ms;">
-                  <li class="swiper-slide swiper-slide-duplicate swiper-slide-duplicate-next" data-swiper-slide-index="1" style="width: 317.25px; margin-right: 16px;" aria-hidden="true">
-                     <section class="ds44-card ds44-js-card ds44-card--verticalPicture ds44-darkContext">
-                        <picture class="ds44-container-imgRatio">
-                           <img src="../../assets/images/ds44-logo--sampleImg.png" alt="" class="ds44-imgRatio">
-                        </picture>
-                        <div class="ds44-card__section">
-                           <p role="heading" aria-level="2" class="ds44-card__title"><a href="#" class="ds44-card__globalLink">Ceci est la tuile numéro 2</a></p>
-                           <p class="ds44-cardDate">Du 6 juillet au 29 septembre 2019</p>
-                           <p class="ds44-cardLocalisation"><i class="icon icon-marker" aria-hidden="true"></i><span class="ds44-iconInnerText">Nantes</span></p>
-                           <i class="icon icon-arrow-right ds44-cardArrow" aria-hidden="true"></i>
-                        </div>
-                     </section>
-                  </li>
-                  <li class="swiper-slide swiper-slide-duplicate" data-swiper-slide-index="2" style="width: 317.25px; margin-right: 16px;" aria-hidden="true">
-                     <section class="ds44-card ds44-js-card ds44-card--verticalPicture ds44-darkContext">
-                        <picture class="ds44-container-imgRatio">
-                           <img src="../../assets/images/ds44-logo--sampleImg.png" alt="" class="ds44-imgRatio">
-                        </picture>
-                        <div class="ds44-card__section">
-                           <p role="heading" aria-level="2" class="ds44-card__title"><a href="#" class="ds44-card__globalLink">Ceci est la tuile numéro 3</a></p>
-                           <p class="ds44-cardDate">Du 6 juillet au 29 septembre 2019</p>
-                           <p class="ds44-cardLocalisation"><i class="icon icon-marker" aria-hidden="true"></i><span class="ds44-iconInnerText">Nantes</span></p>
-                           <i class="icon icon-arrow-right ds44-cardArrow" aria-hidden="true"></i>
-                        </div>
-                     </section>
-                  </li>
-                  <li class="swiper-slide swiper-slide-duplicate" data-swiper-slide-index="3" style="width: 317.25px; margin-right: 16px;" aria-hidden="true">
-                     <section class="ds44-card ds44-js-card ds44-card--verticalPicture ds44-darkContext">
-                        <picture class="ds44-container-imgRatio">
-                           <img src="../../assets/images/ds44-logo--sampleImg.png" alt="" class="ds44-imgRatio">
-                        </picture>
-                        <div class="ds44-card__section">
-                           <p role="heading" aria-level="2" class="ds44-card__title"><a href="#" class="ds44-card__globalLink">Ceci est la tuile numéro 4</a></p>
-                           <p class="ds44-cardDate">Du 6 juillet au 29 septembre 2019</p>
-                           <p class="ds44-cardLocalisation"><i class="icon icon-marker" aria-hidden="true"></i><span class="ds44-iconInnerText">Nantes</span></p>
-                           <i class="icon icon-arrow-right ds44-cardArrow" aria-hidden="true"></i>
-                        </div>
-                     </section>
-                  </li>
-                  <li class="swiper-slide swiper-slide-duplicate swiper-slide-prev" data-swiper-slide-index="4" style="width: 317.25px; margin-right: 16px;" aria-hidden="true">
-                     <section class="ds44-card ds44-js-card ds44-card--verticalPicture ds44-darkContext">
-                        <picture class="ds44-container-imgRatio">
-                           <img src="../../assets/images/ds44-logo--sampleImg.png" alt="" class="ds44-imgRatio">
-                        </picture>
-                        <div class="ds44-card__section">
-                           <p role="heading" aria-level="2" class="ds44-card__title"><a href="#" class="ds44-card__globalLink">Ceci est la tuile numéro 5</a></p>
-                           <p class="ds44-cardDate">Du 6 juillet au 29 septembre 2019</p>
-                           <p class="ds44-cardLocalisation"><i class="icon icon-marker" aria-hidden="true"></i><span class="ds44-iconInnerText">Nantes</span></p>
-                           <i class="icon icon-arrow-right ds44-cardArrow" aria-hidden="true"></i>
-                        </div>
-                     </section>
-                  </li>
-                  <li class="swiper-slide swiper-slide-visible swiper-slide-active" data-swiper-slide-index="0" style="width: 317.25px; margin-right: 16px;">
-                     <section class="ds44-card ds44-js-card ds44-card--verticalPicture ds44-darkContext">
-                        <picture class="ds44-container-imgRatio">
-                           <img src="../../assets/images/ds44-logo--sampleImg.png" alt="" class="ds44-imgRatio">
-                        </picture>
-                        <div class="ds44-card__section">
-                           <p role="heading" aria-level="2" class="ds44-card__title"><a href="#" class="ds44-card__globalLink">Ceci est la tuile numéro 1</a></p>
-                           <p class="ds44-cardDate">Du 6 juillet au 29 septembre 2019</p>
-                           <p class="ds44-cardLocalisation"><i class="icon icon-marker" aria-hidden="true"></i><span class="ds44-iconInnerText">Nantes</span></p>
-                           <i class="icon icon-arrow-right ds44-cardArrow" aria-hidden="true"></i>
-                        </div>
-                     </section>
-                  </li>
-                  <li class="swiper-slide swiper-slide-visible swiper-slide-next" data-swiper-slide-index="1" style="width: 317.25px; margin-right: 16px;">
-                     <section class="ds44-card ds44-js-card ds44-card--verticalPicture ds44-darkContext">
-                        <picture class="ds44-container-imgRatio">
-                           <img src="../../assets/images/ds44-logo--sampleImg.png" alt="" class="ds44-imgRatio">
-                        </picture>
-                        <div class="ds44-card__section">
-                           <p role="heading" aria-level="2" class="ds44-card__title"><a href="#" class="ds44-card__globalLink">Ceci est la tuile numéro 2</a></p>
-                           <p class="ds44-cardDate">Du 6 juillet au 29 septembre 2019</p>
-                           <p class="ds44-cardLocalisation"><i class="icon icon-marker" aria-hidden="true"></i><span class="ds44-iconInnerText">Nantes</span></p>
-                           <i class="icon icon-arrow-right ds44-cardArrow" aria-hidden="true"></i>
-                        </div>
-                     </section>
-                  </li>
-                  <li class="swiper-slide swiper-slide-visible" data-swiper-slide-index="2" style="width: 317.25px; margin-right: 16px;">
-                     <section class="ds44-card ds44-js-card ds44-card--verticalPicture ds44-darkContext">
-                        <picture class="ds44-container-imgRatio">
-                           <img src="../../assets/images/ds44-logo--sampleImg.png" alt="" class="ds44-imgRatio">
-                        </picture>
-                        <div class="ds44-card__section">
-                           <p role="heading" aria-level="2" class="ds44-card__title"><a href="#" class="ds44-card__globalLink">Ceci est la tuile numéro 3</a></p>
-                           <p class="ds44-cardDate">Du 6 juillet au 29 septembre 2019</p>
-                           <p class="ds44-cardLocalisation"><i class="icon icon-marker" aria-hidden="true"></i><span class="ds44-iconInnerText">Nantes</span></p>
-                           <i class="icon icon-arrow-right ds44-cardArrow" aria-hidden="true"></i>
-                        </div>
-                     </section>
-                  </li>
-                  <li class="swiper-slide swiper-slide-visible" data-swiper-slide-index="3" style="width: 317.25px; margin-right: 16px;">
-                     <section class="ds44-card ds44-js-card ds44-card--verticalPicture ds44-darkContext">
-                        <picture class="ds44-container-imgRatio">
-                           <img src="../../assets/images/ds44-logo--sampleImg.png" alt="" class="ds44-imgRatio">
-                        </picture>
-                        <div class="ds44-card__section">
-                           <p role="heading" aria-level="2" class="ds44-card__title"><a href="#" class="ds44-card__globalLink">Ceci est la tuile numéro 4</a></p>
-                           <p class="ds44-cardDate">Du 6 juillet au 29 septembre 2019</p>
-                           <p class="ds44-cardLocalisation"><i class="icon icon-marker" aria-hidden="true"></i><span class="ds44-iconInnerText">Nantes</span></p>
-                           <i class="icon icon-arrow-right ds44-cardArrow" aria-hidden="true"></i>
-                        </div>
-                     </section>
-                  </li>
-                  <li class="swiper-slide swiper-slide-duplicate-prev" data-swiper-slide-index="4" style="width: 317.25px; margin-right: 16px;" aria-hidden="true">
-                     <section class="ds44-card ds44-js-card ds44-card--verticalPicture ds44-darkContext">
-                        <picture class="ds44-container-imgRatio">
-                           <img src="../../assets/images/ds44-logo--sampleImg.png" alt="" class="ds44-imgRatio">
-                        </picture>
-                        <div class="ds44-card__section">
-                           <p role="heading" aria-level="2" class="ds44-card__title"><a href="#" class="ds44-card__globalLink">Ceci est la tuile numéro 5</a></p>
-                           <p class="ds44-cardDate">Du 6 juillet au 29 septembre 2019</p>
-                           <p class="ds44-cardLocalisation"><i class="icon icon-marker" aria-hidden="true"></i><span class="ds44-iconInnerText">Nantes</span></p>
-                           <i class="icon icon-arrow-right ds44-cardArrow" aria-hidden="true"></i>
-                        </div>
-                     </section>
-                  </li>
-                  <li class="swiper-slide swiper-slide-duplicate swiper-slide-duplicate-active" data-swiper-slide-index="0" style="width: 317.25px; margin-right: 16px;" aria-hidden="true">
-                     <section class="ds44-card ds44-js-card ds44-card--verticalPicture ds44-darkContext">
-                        <picture class="ds44-container-imgRatio">
-                           <img src="../../assets/images/ds44-logo--sampleImg.png" alt="" class="ds44-imgRatio">
-                        </picture>
-                        <div class="ds44-card__section">
-                           <p role="heading" aria-level="2" class="ds44-card__title"><a href="#" class="ds44-card__globalLink">Ceci est la tuile numéro 1</a></p>
-                           <p class="ds44-cardDate">Du 6 juillet au 29 septembre 2019</p>
-                           <p class="ds44-cardLocalisation"><i class="icon icon-marker" aria-hidden="true"></i><span class="ds44-iconInnerText">Nantes</span></p>
-                           <i class="icon icon-arrow-right ds44-cardArrow" aria-hidden="true"></i>
-                        </div>
-                     </section>
-                  </li>
-                  <li class="swiper-slide swiper-slide-duplicate swiper-slide-duplicate-next" data-swiper-slide-index="1" style="width: 317.25px; margin-right: 16px;" aria-hidden="true">
-                     <section class="ds44-card ds44-js-card ds44-card--verticalPicture ds44-darkContext">
-                        <picture class="ds44-container-imgRatio">
-                           <img src="../../assets/images/ds44-logo--sampleImg.png" alt="" class="ds44-imgRatio">
-                        </picture>
-                        <div class="ds44-card__section">
-                           <p role="heading" aria-level="2" class="ds44-card__title"><a href="#" class="ds44-card__globalLink">Ceci est la tuile numéro 2</a></p>
-                           <p class="ds44-cardDate">Du 6 juillet au 29 septembre 2019</p>
-                           <p class="ds44-cardLocalisation"><i class="icon icon-marker" aria-hidden="true"></i><span class="ds44-iconInnerText">Nantes</span></p>
-                           <i class="icon icon-arrow-right ds44-cardArrow" aria-hidden="true"></i>
-                        </div>
-                     </section>
-                  </li>
-                  <li class="swiper-slide swiper-slide-duplicate" data-swiper-slide-index="2" style="width: 317.25px; margin-right: 16px;" aria-hidden="true">
-                     <section class="ds44-card ds44-js-card ds44-card--verticalPicture ds44-darkContext">
-                        <picture class="ds44-container-imgRatio">
-                           <img src="../../assets/images/ds44-logo--sampleImg.png" alt="" class="ds44-imgRatio">
-                        </picture>
-                        <div class="ds44-card__section">
-                           <p role="heading" aria-level="2" class="ds44-card__title"><a href="#" class="ds44-card__globalLink">Ceci est la tuile numéro 3</a></p>
-                           <p class="ds44-cardDate">Du 6 juillet au 29 septembre 2019</p>
-                           <p class="ds44-cardLocalisation"><i class="icon icon-marker" aria-hidden="true"></i><span class="ds44-iconInnerText">Nantes</span></p>
-                           <i class="icon icon-arrow-right ds44-cardArrow" aria-hidden="true"></i>
-                        </div>
-                     </section>
-                  </li>
-                  <li class="swiper-slide swiper-slide-duplicate" data-swiper-slide-index="3" style="width: 317.25px; margin-right: 16px;" aria-hidden="true">
-                     <section class="ds44-card ds44-js-card ds44-card--verticalPicture ds44-darkContext">
-                        <picture class="ds44-container-imgRatio">
-                           <img src="../../assets/images/ds44-logo--sampleImg.png" alt="" class="ds44-imgRatio">
-                        </picture>
-                        <div class="ds44-card__section">
-                           <p role="heading" aria-level="2" class="ds44-card__title"><a href="#" class="ds44-card__globalLink">Ceci est la tuile numéro 4</a></p>
-                           <p class="ds44-cardDate">Du 6 juillet au 29 septembre 2019</p>
-                           <p class="ds44-cardLocalisation"><i class="icon icon-marker" aria-hidden="true"></i><span class="ds44-iconInnerText">Nantes</span></p>
-                           <i class="icon icon-arrow-right ds44-cardArrow" aria-hidden="true"></i>
-                        </div>
-                     </section>
-                  </li>
-               </ul>
-            </div>
-            <button class="swiper-button-prev ds44-not-edge-42" type="button" title="Voir le contenu précédent : Sur le même thème - 5/5">
-            <i class="icon icon-left" aria-hidden="true"></i>
-            <span class="visually-hidden">Voir le contenu précédent : Sur le même thème - 5/5</span>
-            </button>
-            <button class="swiper-button-next ds44-not-edge-42" type="button" title="Voir le contenu suivant : Sur le même thème - 5/5">
-            <i class="icon icon-right" aria-hidden="true"></i>
-            <span class="visually-hidden">Voir le contenu suivant : Sur le même thème - 5/5</span>
-            </button>
-         </div>
-      </div>
-   </section>
+   
+   <%-- Sur le même thème
+             Affichage de contenus catégorisés sous "Mise en  avant > En ce moment" et ayant au moins un catégorie commune parmi
+             les catégories de navigation de la fiche actu (branche "Navigation des espaces")
+        --%>
+        <%
+        // Récupération des catégories de navigation
+        Category navigationDesEspacesCat = channel.getCategory(channel.getProperty("jcmsplugin.socle.site.menu.cat.root"));
+        Set<Category> navCat = new TreeSet<Category>();
+        if(Util.notEmpty(obj.getCategories(loggedMember))){
+            for(Category itCat:obj.getCategories(loggedMember)){
+                if(itCat.hasAncestor(navigationDesEspacesCat)){
+                    navCat.add(itCat);
+                }
+            }
+        }
+        %>
+
+   <jalios:if predicate='<%= !navCat.isEmpty() && Util.notEmpty(channel.getProperty("$jcmsplugin.socle.category.enCeMoment.root"))%>'>
+            <% 
+            // Récupération des publications catégorisées dans "En ce moment"
+            QueryHandler qhEnCeMoment = new QueryHandler();
+            qhEnCeMoment.setCids(channel.getProperty("$jcmsplugin.socle.category.enCeMoment.root"));
+            qhEnCeMoment.setLoggedMember(loggedMember);
+            qhEnCeMoment.setTypes("Content");
+            QueryResultSet resultEnCeMomentSet = qhEnCeMoment.getResultSet();
+            SortedSet<Publication> listPubsEnCeMomentSet = resultEnCeMomentSet.getAsSortedSet(Publication.getPdateComparator());
+            
+            // Récupération des publication catégorisées dans au moins une des thématiques du communiqué courant.
+            QueryHandler qhThemes= new QueryHandler();
+            String[] themeCids = JcmsUtil.dataArrayToStringArray(navCat.toArray(new Data[navCat.size()]));
+            qhThemes.setCatMode("or");
+            qhThemes.setCids(themeCids);
+            qhThemes.setLoggedMember(loggedMember);
+            qhThemes.setTypes("Content");
+            QueryResultSet resultThemesSet = qhThemes.getResultSet();
+            SortedSet<Publication> listPubsThemesSet = resultThemesSet.getAsSortedSet(Publication.getPdateComparator());
+            
+            // Intersection des 2 sets
+            Set<Publication> sameThemePubSet = new TreeSet<Publication>(Publication.getPdateComparator()); 
+            sameThemePubSet.addAll(Util.interSet(listPubsEnCeMomentSet, listPubsThemesSet));
+                        
+            // Suppression de la pub courante
+            sameThemePubSet.remove(obj);
+            
+            // Limiter à un nombre d'éléments max
+            int max = channel.getIntegerProperty("jcmsplugin.socle.meme-theme.max", 20);
+            List<Publication> tmpList = new ArrayList(sameThemePubSet);
+            if(tmpList.size() >= max){
+                tmpList = tmpList.subList(0, max);  
+            }
+            %>
+
+            <jalios:if predicate='<%= !sameThemePubSet.isEmpty() %>'>
+                <%
+                // Transfo du set en tableau pour passer au carrousel
+                Content[] sameThemePubArray = tmpList.toArray(new Content[tmpList.size()]);
+                //Content[] sameThemePubArray = sameThemePubSet.toArray(new Content[sameThemePubSet.size()]);
+                
+                // Instanciation de la portlet carrousel avec les pubs de même thème
+                PortletCarousel carouselEnCeMoment = new PortletCarousel();
+                carouselEnCeMoment.setTitreDuBloc(glp("jcmsplugin.socle.memetheme"));
+                carouselEnCeMoment.setTemplate("box.sliderQuatre");
+                carouselEnCeMoment.setSelectionDuTheme("tuileVerticaleLight");
+                carouselEnCeMoment.setPositionTitre("bl");
+                carouselEnCeMoment.setFirstPublications(sameThemePubArray);
+                %>
+
+                <jalios:include pub="<%= carouselEnCeMoment %>"/>
+
+            </jalios:if>
+
+        </jalios:if>
+
 </main>
