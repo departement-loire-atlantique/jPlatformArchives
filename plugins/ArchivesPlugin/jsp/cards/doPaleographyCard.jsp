@@ -13,7 +13,6 @@ Paleography pub = (Paleography) data;
 
 String uid = ServletUtil.generateUniqueDOMId(request, "uid");
 
-String[] nameCategories = SocleUtils.formatCategories(pub.getFirstLevels(loggedMember)).split(", ");
 %>
 
 
