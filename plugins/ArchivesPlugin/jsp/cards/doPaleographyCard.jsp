@@ -14,7 +14,7 @@ Paleography pub = (Paleography) data;
 String uid = ServletUtil.generateUniqueDOMId(request, "uid");
 
 String[] nameCategories = SocleUtils.formatCategories(pub.getLevels(loggedMember)).split(", ");
-
+%>
 
 <section class="ds44-card ds44-js-card ds44-card--contact ds44-box ds44-bgGray">
 
