@@ -14,3 +14,4 @@ media.data-template.card.MethodologyCard: /plugins/ArchivesPlugin/jsp/cards/doMe
 
 # Catégories
 $jcmsplugin.archives.category.paleography.root: c_22624
+$jcmsplugin.archives.category.methodologycard.root: c_5804
