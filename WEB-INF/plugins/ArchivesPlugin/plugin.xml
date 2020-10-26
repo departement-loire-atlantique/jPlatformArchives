@@ -33,6 +33,10 @@
         </template>
     </templates>            
   </types>
+  
+  <java-classes>
+    <java package="fr.cg44.plugin.archives"/>   
+  </java-classes>
     
   <private-files>
     <file path="properties/plugin.prop" />

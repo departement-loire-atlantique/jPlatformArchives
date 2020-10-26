@@ -6,6 +6,9 @@ import java.io.FileReader;
 import java.io.IOException;
 
 import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
+import java.util.List;
+
 import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.lang.ArrayUtils;
 import org.apache.log4j.Logger;
@@ -98,24 +101,44 @@ public class OrganismeCsvImportHandler extends EditDataHandler {
 
         String itOrganisme = itData[0];
         String itMail = itData[1];
-        String itContactId = itData[2];
+        String itContactIdString = itData[2];
 
-        Contact itContact = (Contact) channel.getPublication(itContactId.trim());
-        if(Util.isEmpty(itContact)) {
-          msgWarn.append("Impossible d'importer la ligne " + cpt + ", contact introuvable dans JCMS : " + itContactId + "</br>");    
-        } else {
-          
+        // Vérification de l'existance des contacts dans JCMS
+        boolean contactIntrouvable = false;
+        List<Contact> contactList = new ArrayList<Contact>();
+        if(Util.notEmpty(itContactIdString)) {
+          String[] itContactIdTab = itContactIdString.split(" ");
+          for(String itContactId : itContactIdTab) {
+            Contact itContact = (Contact) channel.getPublication(itContactId.trim());
+            if(Util.isEmpty(itContact)) {
+              msgWarn.append("Impossible d'importer la ligne " + cpt + ", contact introuvable dans JCMS : " + itContactId + "</br>");
+              contactIntrouvable = true;
+            }else {
+              contactList.add(itContact);
+            }
+          }
+        }
+        
+
+ 
+        if(!contactIntrouvable) {
+         
           FicheLieu itFicheLieu = new FicheLieu();
           itFicheLieu.setAuthor(channel.getDefaultAdmin());
           itFicheLieu.setTitle(itOrganisme);
-          itFicheLieu.setEmail(new String[]{itMail});
+          if(Util.notEmpty(itMail)) {
+            itFicheLieu.setEmail(itMail.split(" "));
+          }          
           itFicheLieu.setCategories(new Category[]{organismeClassementCat, organismeNavigationCat});
-          
-          Contact itContactClone = (Contact) itContact.getUpdateInstance();        
-          FicheLieu[] itContactFiche =  itContactClone.getContactPourLesFichesLieux();
-          FicheLieu[] itContactFicheNew = (FicheLieu[]) (ArrayUtils.add(itContactFiche, itFicheLieu));         
-          itContactClone.setContactPourLesFichesLieux(itContactFicheNew);         
-          itContactClone.performUpdate(channel.getDefaultAdmin());
+          itFicheLieu.performCreate(channel.getDefaultAdmin());
+               
+          for(Contact itContact : contactList) {
+            Contact itContactClone = (Contact) itContact.getUpdateInstance();        
+            FicheLieu[] itContactFiche =  itContactClone.getContactPourLesFichesLieux();
+            FicheLieu[] itContactFicheNew = (FicheLieu[]) (ArrayUtils.add(itContactFiche, itFicheLieu));         
+            itContactClone.setContactPourLesFichesLieux(itContactFicheNew);         
+            itContactClone.performUpdate(channel.getDefaultAdmin());
+          }
           
           nbOrganismeImpote++;
         }
