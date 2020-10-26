@@ -42,6 +42,7 @@
     <directory path="docs" />
     <directory path="jsp" />
     <directory path="types" /> 
+    <file path="jsp/reprise/repriseOrganismeLink.jsp" include="ADMIN_OPERATION" />
   </public-files>
 </plugin>
 
