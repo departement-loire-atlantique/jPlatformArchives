@@ -11,3 +11,6 @@ $jcmsplugin.archives.paleography.levels.root: c_5805
 # Content template - cards
 media.data-template.card.Paleography: /plugins/ArchivesPlugin/jsp/cards/doPaleographyCard.jsp
 media.data-template.card.MethodologyCard: /plugins/ArchivesPlugin/jsp/cards/doMethodologyCardCard.jsp
+
+# Catégories
+$jcmsplugin.archives.category.paleography.root: c_22624
