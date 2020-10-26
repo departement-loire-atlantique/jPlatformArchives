@@ -8,6 +8,8 @@ import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.lang.ArrayUtils;
@@ -96,14 +98,14 @@ public class OrganismeCsvImportHandler extends EditDataHandler {
       if(cpt == 1) {
         continue;
       }      
-      String[] itData = line.split(";");     
+      String[] itData = line.split(CSV_SPLIT);     
       if(Util.notEmpty(itData) && itData.length == 3) {
 
         String itOrganisme = itData[0];
         String itMail = itData[1];
         String itContactIdString = itData[2];
 
-        // Vérification de l'existance des contacts dans JCMS
+        // Vérification de l'existence des contacts dans JCMS
         boolean contactIntrouvable = false;
         List<Contact> contactList = new ArrayList<Contact>();
         if(Util.notEmpty(itContactIdString)) {
@@ -119,10 +121,19 @@ public class OrganismeCsvImportHandler extends EditDataHandler {
           }
         }
         
-
- 
-        if(!contactIntrouvable) {
-         
+        // Vérification de l'existence de la fiche lieu dans JMCS pour éviter les doublons
+        boolean existeFicheLieu = false;
+        Set<FicheLieu> ficheLieuSet = channel.getAllPublicationSet(FicheLieu.class, channel.getDefaultAdmin());
+        Set<String> ficheLieuIdSet = ficheLieuSet.stream().map(FicheLieu::getTitle).collect(Collectors.toSet());
+        if(ficheLieuIdSet.contains(itOrganisme)) {
+          msgWarn.append("Impossible d'importer la ligne " + cpt + ", l'organisme existe déjà dans JCMS : " + itOrganisme + "</br>");
+          existeFicheLieu = true;
+        }
+        
+        // Import de l'organisme avec association du contact, 
+        // seulement si le contact est trouvé et que le fiche lieu n'existe pas encore
+        if(!contactIntrouvable && !existeFicheLieu) {
+          // Création de la fiche lieu
           FicheLieu itFicheLieu = new FicheLieu();
           itFicheLieu.setAuthor(channel.getDefaultAdmin());
           itFicheLieu.setTitle(itOrganisme);
@@ -131,7 +142,7 @@ public class OrganismeCsvImportHandler extends EditDataHandler {
           }          
           itFicheLieu.setCategories(new Category[]{organismeClassementCat, organismeNavigationCat});
           itFicheLieu.performCreate(channel.getDefaultAdmin());
-               
+          // Association de la fiche lieu au contact 
           for(Contact itContact : contactList) {
             Contact itContactClone = (Contact) itContact.getUpdateInstance();        
             FicheLieu[] itContactFiche =  itContactClone.getContactPourLesFichesLieux();
@@ -148,7 +159,7 @@ public class OrganismeCsvImportHandler extends EditDataHandler {
       }      
     }
     Channel.getChannel().getCurrentJcmsContext().addMsgSession(new JcmsMessage(Level.INFO, nbOrganismeImpote + " organismes importés"));
-    if(Util.notEmpty(msgWarn)) {
+    if(Util.notEmpty(msgWarn.toString())) {
       Channel.getChannel().getCurrentJcmsContext().addMsgSession(new JcmsMessage(Level.WARN, msgWarn.toString()));
     }
   }

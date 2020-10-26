@@ -22,7 +22,8 @@ if (formHandler.validate()) {
 
 <div class="page-header"><h1>Reprise des organismes avec contacts</h1></div>
 
-<p>Le fichier csv doit avoir un champ organisme, email, idjcms et les contacts correspondants doivent être créés dans jcms. La première ligne doit contenir les entêtes</p>
+<p>Le fichier csv doit avoir un champ organisme, email, idjcms et les contacts correspondants doivent être créés dans jcms. La première ligne doit contenir les entêtes. Le fichier doit être encodé en UTF-8.</p>
+<p><a href="plugins/ArchivesPlugin/jsp/reprise/test_import_organisme.csv" download>Fichier CVS exemple </a> 
 
 
 <%@ include file='/jcore/doMessageBox.jspf'%>
