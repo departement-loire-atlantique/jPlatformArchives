@@ -78,13 +78,13 @@
         }
         %>
    
-   <jalios:if predicate='<%= !navCat.isEmpty() && Util.notEmpty(channel.getProperty("$jcmsplugin.socle.category.enCeMoment.root"))%>'>
+   <jalios:if predicate='<%= !navCat.isEmpty() && Util.notEmpty(channel.getProperty("$jcmsplugin.archives.category.methodologycard.root"))%>'>
             <% 
-            // Récupération des publications catégorisées dans "En ce moment"
+            // Récupération des publications catégorisées à la racine des catégories Méthodologie
             QueryHandler qhEnCeMoment = new QueryHandler();
-            qhEnCeMoment.setCids(channel.getProperty("$jcmsplugin.socle.category.enCeMoment.root"));
+            qhEnCeMoment.setCids(channel.getProperty("$jcmsplugin.archives.category.methodologycard.root"));
             qhEnCeMoment.setLoggedMember(loggedMember);
-            qhEnCeMoment.setTypes("Content");
+            qhEnCeMoment.setTypes("MethodologyCard");
             QueryResultSet resultEnCeMomentSet = qhEnCeMoment.getResultSet();
             SortedSet<Publication> listPubsEnCeMomentSet = resultEnCeMomentSet.getAsSortedSet(Publication.getPdateComparator());
             
@@ -94,7 +94,7 @@
             qhThemes.setCatMode("or");
             qhThemes.setCids(themeCids);
             qhThemes.setLoggedMember(loggedMember);
-            qhThemes.setTypes("Content");
+            qhThemes.setTypes("MethodologyCard");
             QueryResultSet resultThemesSet = qhThemes.getResultSet();
             SortedSet<Publication> listPubsThemesSet = resultThemesSet.getAsSortedSet(Publication.getPdateComparator());
             
