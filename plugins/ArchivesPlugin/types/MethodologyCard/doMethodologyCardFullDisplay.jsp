@@ -46,6 +46,11 @@
       <section class="ds44-contenuArticle" id="descriptionMethodologie">
          <div class="ds44-inner-container ds44-mtb3">
             <div class="ds44-grid12-offset-2">
+               <jalios:if predicate="<%= Util.notEmpty(obj.getSummary()) %>">
+               <div class="ds44-introduction">
+                   <jalios:wysiwyg><%= obj.getSummary() %></jalios:wysiwyg>
+               </div>
+               </jalios:if>
                <jalios:wysiwyg><%= obj.getDescription() %></jalios:wysiwyg>
             </div>
          </div>

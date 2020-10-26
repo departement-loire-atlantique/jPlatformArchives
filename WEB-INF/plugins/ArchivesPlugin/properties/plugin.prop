@@ -15,3 +15,6 @@ media.data-template.card.MethodologyCard: /plugins/ArchivesPlugin/jsp/cards/doMe
 # Import organisme avec contact
 $jcmsplugin.archives.import.organisme.classement.root: c_21132
 $jcmsplugin.archives.import.organisme.navigation.root: c_5011
+
+# Catégories
+$jcmsplugin.archives.category.paleography.root: c_22624
