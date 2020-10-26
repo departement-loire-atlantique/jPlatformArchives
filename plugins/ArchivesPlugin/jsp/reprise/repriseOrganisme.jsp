@@ -22,6 +22,8 @@ if (formHandler.validate()) {
 
 <div class="page-header"><h1>Reprise des organismes avec contacts</h1></div>
 
+<p>Le fichier csv doit avoir un champ organisme, email, idjcms et les contacts correspondants doivent être créés dans jcms. La première ligne doit contenir les entêtes</p>
+
 
 <%@ include file='/jcore/doMessageBox.jspf'%>
 
