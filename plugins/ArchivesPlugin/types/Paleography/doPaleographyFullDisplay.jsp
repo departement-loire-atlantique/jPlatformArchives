@@ -23,7 +23,7 @@
          <div class="ds44-inner-container">
             <div class="ds44-grid12-offset-1">
                <jalios:if predicate="<%= Util.notEmpty(obj.getTextRecall()) %>">
-                   <ds:figurePicture imgCss="ds44-w100" pictureCss="ds44-legendeContainer ds44-imgLoupe" format="principale" image="<%= obj.getTextRecall() %>" imageMobile="<%= obj.getTextRecall() %>"/>
+                   <ds:figurePicture imgCss="ds44-w100" figureCss="ds44-legendeContainer ds44-imgLoupe" format="unchanged" image="<%= obj.getTextRecall() %>" imageMobile="<%= obj.getTextRecall() %>"/>
                </jalios:if>
                <div class="ds44-theme ds44-flex-valign-center ds44-flex-container ds44-fse ds44--l-padding ">
                   <span class="ds44-docListElem"><i class="icon icon-tag ds44-docListIco" aria-hidden="true"></i><%= SocleUtils.formatCategories(obj.getLevels(loggedMember)) %></span>
@@ -75,13 +75,13 @@
         }
         %>
 
-   <jalios:if predicate='<%= !navCat.isEmpty() && Util.notEmpty(channel.getProperty("$jcmsplugin.socle.category.enCeMoment.root"))%>'>
+   <jalios:if predicate='<%= !navCat.isEmpty() && Util.notEmpty(channel.getProperty("$jcmsplugin.archives.category.paleography.root"))%>'>
             <% 
-            // Récupération des publications catégorisées dans "En ce moment"
+            // Récupération des publications catégorisées à la racine des contenus Paléographie
             QueryHandler qhEnCeMoment = new QueryHandler();
-            qhEnCeMoment.setCids(channel.getProperty("$jcmsplugin.socle.category.enCeMoment.root"));
+            qhEnCeMoment.setCids(channel.getProperty("$jcmsplugin.archives.category.paleography.root"));
             qhEnCeMoment.setLoggedMember(loggedMember);
-            qhEnCeMoment.setTypes("Content");
+            qhEnCeMoment.setTypes("Paleography");
             QueryResultSet resultEnCeMomentSet = qhEnCeMoment.getResultSet();
             SortedSet<Publication> listPubsEnCeMomentSet = resultEnCeMomentSet.getAsSortedSet(Publication.getPdateComparator());
             
@@ -91,7 +91,7 @@
             qhThemes.setCatMode("or");
             qhThemes.setCids(themeCids);
             qhThemes.setLoggedMember(loggedMember);
-            qhThemes.setTypes("Content");
+            qhThemes.setTypes("Paleography");
             QueryResultSet resultThemesSet = qhThemes.getResultSet();
             SortedSet<Publication> listPubsThemesSet = resultThemesSet.getAsSortedSet(Publication.getPdateComparator());
             
