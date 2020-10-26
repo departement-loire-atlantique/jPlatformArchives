@@ -81,7 +81,7 @@
             QueryHandler qhEnCeMoment = new QueryHandler();
             qhEnCeMoment.setCids(channel.getProperty("$jcmsplugin.archives.category.paleography.root"));
             qhEnCeMoment.setLoggedMember(loggedMember);
-            qhEnCeMoment.setTypes("Content");
+            qhEnCeMoment.setTypes("Paleography");
             QueryResultSet resultEnCeMomentSet = qhEnCeMoment.getResultSet();
             SortedSet<Publication> listPubsEnCeMomentSet = resultEnCeMomentSet.getAsSortedSet(Publication.getPdateComparator());
             
