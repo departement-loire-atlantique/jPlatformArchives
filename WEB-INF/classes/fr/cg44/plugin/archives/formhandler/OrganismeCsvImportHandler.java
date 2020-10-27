@@ -50,6 +50,8 @@ public class OrganismeCsvImportHandler extends EditDataHandler {
   public boolean processAction() throws IOException {       
     if(this.opUpload && validateUpload()) {
       importOrganisme();
+      deleteCsvFile();
+      return true;
     }   
     return false;    
   }
@@ -158,6 +160,7 @@ public class OrganismeCsvImportHandler extends EditDataHandler {
         msgWarn.append("Impossible d'importer la ligne " + cpt + ", nombre de colonnes incorrectes : " + line + "</br>");        
       }      
     }
+    fileReader.close();
     Channel.getChannel().getCurrentJcmsContext().addMsgSession(new JcmsMessage(Level.INFO, nbOrganismeImpote + " organismes importés"));
     if(Util.notEmpty(msgWarn.toString())) {
       Channel.getChannel().getCurrentJcmsContext().addMsgSession(new JcmsMessage(Level.WARN, msgWarn.toString()));

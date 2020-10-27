@@ -13,9 +13,7 @@ if(!isAdmin) {
   %><jsp:setProperty name='formHandler' property='*' />                                               <%
 %></jsp:useBean><% 
 
-if (formHandler.validate()) {
-  sendRedirect("plugins/ArchivesPlugin/jsp/reprise/repriseOrganisme.jsp");
-}
+formHandler.validate();
 %>
 
 <%@ include file='/admin/doAdminHeader.jspf' %>
