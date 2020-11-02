@@ -10,6 +10,8 @@
 <main role="main" id="contentPaleography">
    <article class="ds44-container-large">
       <div class="ds44-lightBG">
+         <%-- bouton Retour a la liste --%>
+        <%@ include file="/plugins/SoclePlugin/jsp/facettes/doRetourListe.jspf" %>
          <div class="ds44-inner-container ds44--xl-padding-t ds44--m-padding-b ds44-mobile-reduced-pt">
             <div class="ds44-grid12-offset-2">
                <jalios:if predicate='<%= Util.notEmpty(Channel.getChannel().getProperty("jcmsplugin.socle.portlet.filariane.id")) %>'>
