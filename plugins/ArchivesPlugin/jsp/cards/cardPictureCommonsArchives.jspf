@@ -8,6 +8,12 @@ if (Util.isEmpty(request.getAttribute("forcedImgUrl"))) {
 	} catch(Exception e) {}
 	
 	if (Util.isEmpty(urlImage)) {
+	    try {
+	     urlImage = (String) pub.getFieldValue("imageTuile");
+	    } catch(Exception e) {}
+    }
+	
+	if (Util.isEmpty(urlImage)) {
 	 try {
 	  urlImage = (String) pub.getFieldValue("textRecall");
 	 } catch(Exception e) {}
