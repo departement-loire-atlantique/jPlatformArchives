@@ -9,7 +9,7 @@
 
 <main role="main" id="contentPaleography">
    <article class="ds44-container-large">
-      <div class="ds44-lightBG">
+      <div class="ds44-lightBG ds44-posRel">
          <%-- bouton Retour a la liste --%>
         <%@ include file="/plugins/SoclePlugin/jsp/facettes/doRetourListe.jspf" %>
          <div class="ds44-inner-container ds44--xl-padding-t ds44--m-padding-b ds44-mobile-reduced-pt">

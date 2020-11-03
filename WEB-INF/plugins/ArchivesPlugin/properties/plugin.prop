@@ -19,3 +19,7 @@ $jcmsplugin.archives.import.organisme.navigation.root: c_5011
 # Catégories
 $jcmsplugin.archives.category.paleography.root: c_22624
 $jcmsplugin.archives.category.methodologycard.root: c_5804
+
+# Formulaires
+jcmsplugin.archives.form.mailTo: archives@loire-atlantique.fr
+jcmsplugin.archives.form.from: archives@loire-atlantique.fr

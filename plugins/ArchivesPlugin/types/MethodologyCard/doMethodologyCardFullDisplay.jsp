@@ -11,7 +11,7 @@
 <main role="main" id="content" tabindex="-1">
    <article class="ds44-container-large">
    
-	  <div class="ds44-lightBG">
+	  <div class="ds44-lightBG ds44-posRel">
 	  
 		   <%-- bouton Retour a la liste --%>
 	       <%@ include file="/plugins/SoclePlugin/jsp/facettes/doRetourListe.jspf" %>
