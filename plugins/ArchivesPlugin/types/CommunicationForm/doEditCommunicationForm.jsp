@@ -2,7 +2,7 @@
 <%@ include file='/jcore/doInitPage.jspf' %>
 
 <%
-String formAction = "plugins/SoclePlugin/jsp/forms/checkCommunicationForm.jsp";
+String formAction = "plugins/SoclePlugin/jsp/forms/checkArchivesCommunicationAdministrative.jsp";
 %>
 
 <div class="ds44-loader-text visually-hidden" tabindex="-1" aria-live="polite"></div>
