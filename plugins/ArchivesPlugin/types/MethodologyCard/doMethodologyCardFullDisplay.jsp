@@ -12,6 +12,10 @@
    <article class="ds44-container-large">
    
 	  <div class="ds44-lightBG">
+	  
+		   <%-- bouton Retour a la liste --%>
+	       <%@ include file="/plugins/SoclePlugin/jsp/facettes/doRetourListe.jspf" %>
+	  
 		   <div class="ds44-inner-container ds44--xl-padding-t ds44--m-padding-b ds44-mobile-reduced-pt">
 		      <div class="ds44-grid12-offset-2">
 		         <jalios:if predicate='<%= Util.notEmpty(Channel.getChannel().getProperty("jcmsplugin.socle.portlet.filariane.id")) %>'>
@@ -46,6 +50,11 @@
       <section class="ds44-contenuArticle" id="descriptionMethodologie">
          <div class="ds44-inner-container ds44-mtb3">
             <div class="ds44-grid12-offset-2">
+               <jalios:if predicate="<%= Util.notEmpty(obj.getSummary()) %>">
+               <div class="ds44-introduction">
+                   <jalios:wysiwyg><%= obj.getSummary() %></jalios:wysiwyg>
+               </div>
+               </jalios:if>
                <jalios:wysiwyg><%= obj.getDescription() %></jalios:wysiwyg>
             </div>
          </div>
@@ -73,13 +82,13 @@
         }
         %>
    
-   <jalios:if predicate='<%= !navCat.isEmpty() && Util.notEmpty(channel.getProperty("$jcmsplugin.socle.category.enCeMoment.root"))%>'>
+   <jalios:if predicate='<%= !navCat.isEmpty() && Util.notEmpty(channel.getProperty("$jcmsplugin.archives.category.methodologycard.root"))%>'>
             <% 
-            // Récupération des publications catégorisées dans "En ce moment"
+            // Récupération des publications catégorisées à la racine des catégories Méthodologie
             QueryHandler qhEnCeMoment = new QueryHandler();
-            qhEnCeMoment.setCids(channel.getProperty("$jcmsplugin.socle.category.enCeMoment.root"));
+            qhEnCeMoment.setCids(channel.getProperty("$jcmsplugin.archives.category.methodologycard.root"));
             qhEnCeMoment.setLoggedMember(loggedMember);
-            qhEnCeMoment.setTypes("Content");
+            qhEnCeMoment.setTypes("MethodologyCard");
             QueryResultSet resultEnCeMomentSet = qhEnCeMoment.getResultSet();
             SortedSet<Publication> listPubsEnCeMomentSet = resultEnCeMomentSet.getAsSortedSet(Publication.getPdateComparator());
             
@@ -89,7 +98,7 @@
             qhThemes.setCatMode("or");
             qhThemes.setCids(themeCids);
             qhThemes.setLoggedMember(loggedMember);
-            qhThemes.setTypes("Content");
+            qhThemes.setTypes("MethodologyCard");
             QueryResultSet resultThemesSet = qhThemes.getResultSet();
             SortedSet<Publication> listPubsThemesSet = resultThemesSet.getAsSortedSet(Publication.getPdateComparator());
             

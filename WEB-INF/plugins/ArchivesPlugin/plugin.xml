@@ -34,6 +34,10 @@
         </template>
     </templates>            
   </types>
+  
+  <java-classes>
+    <java package="fr.cg44.plugin.archives"/>   
+  </java-classes>
     
   <private-files>
     <file path="properties/plugin.prop" />
@@ -43,6 +47,7 @@
     <directory path="docs" />
     <directory path="jsp" />
     <directory path="types" /> 
+    <file path="jsp/reprise/repriseOrganismeLink.jsp" include="ADMIN_OPERATION" />
   </public-files>
 </plugin>
 
