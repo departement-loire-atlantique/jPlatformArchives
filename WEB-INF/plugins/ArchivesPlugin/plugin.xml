@@ -6,6 +6,10 @@
   <label xml:lang="fr">Archives</label>
   <description xml:lang="fr">Module pour le site des Archives</description>
 
+  <dependencies>
+    <dependency name="SoclePlugin" />
+  </dependencies>
+
   <types>
     <type name="ArchiveDigitized"></type>
     <type name="CommunicationForm"><file path="editFormCommunicationForm.jsp" /></type>

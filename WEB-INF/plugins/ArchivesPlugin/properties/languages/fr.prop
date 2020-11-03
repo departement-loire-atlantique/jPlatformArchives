@@ -26,3 +26,6 @@ jcmsplugin.archives.form.communication.boutonEnvoi.title : Envoyer votre demande
 #  Email
 # ------------------------------------------------------------
 jcmsplugin.archives.email.communication.objet: Votre demande de communication administrative
+
+# Réseaux sociaux
+jcmsplugin.socle.socialnetworks.title: Les archives départementales de Loire-Atlantique sur 
