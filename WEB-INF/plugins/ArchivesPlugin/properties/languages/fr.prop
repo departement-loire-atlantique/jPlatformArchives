@@ -1,0 +1,28 @@
+# ------------------------------------------------------------
+#  Formulaires
+# ------------------------------------------------------------
+jcmsplugin.archives.form.communication.vous-etes : Vous êtes
+jcmsplugin.archives.form.communication.nom : Nom
+jcmsplugin.archives.form.communication.prenom : Prénom
+jcmsplugin.archives.form.communication.administration : Administration
+jcmsplugin.archives.form.communication.direction : Direction
+jcmsplugin.archives.form.communication.service : Service / Unité
+jcmsplugin.archives.form.communication.coordonnees : Vos coordonnées
+jcmsplugin.archives.form.communication.adresse : Adresse
+jcmsplugin.archives.form.communication.complementAdresse : complément d'adresse
+jcmsplugin.archives.form.communication.codePostal : Code postal
+jcmsplugin.archives.form.communication.ville : Ville
+jcmsplugin.archives.form.communication.telephone : Téléphone
+jcmsplugin.archives.form.communication.courriel : Courriel
+jcmsplugin.archives.form.communication.caracteristiquesRecherche : Caractéristiques de la recherche
+jcmsplugin.archives.form.communication.versement : N° de versement (4 chiffres)
+jcmsplugin.archives.form.communication.dossier : N° du dossier (1 à 4 chiffres)
+jcmsplugin.archives.form.communication.natureRecherche : Nature de la recherche
+jcmsplugin.archives.form.communication.dateVersement : Date de versement
+jcmsplugin.archives.form.communication.dateRetour : Retour du dossier prévu le
+jcmsplugin.archives.form.communication.boutonEnvoi.title : Envoyer votre demande aux Archives départementales
+
+# ------------------------------------------------------------
+#  Email
+# ------------------------------------------------------------
+jcmsplugin.archives.email.communication.objet: Votre demande de communication administrative

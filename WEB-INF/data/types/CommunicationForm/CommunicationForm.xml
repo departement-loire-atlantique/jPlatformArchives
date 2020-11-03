@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<type name="CommunicationForm" superclass="com.jalios.jcms.Form" formOneSubmit="false" formNotify="false" formAuthor="j_2" formRedirectMode="currentCategory" categoryTab="true" readRightTab="true" updateRightTab="true" templateTab="true" workflowTab="true" advancedTab="true" titleML="true" hbm="true" debatable="false" unitFieldEdition="true" audienced="false" database="true">
+  <label xml:lang="fr">Communication administrative</label>
+  <title ml="false">
+    <label xml:lang="fr">Titre</label>
+    <label xml:lang="en">Title</label>
+  </title>
+  <fields>
+    <field name="nom" editor="textfield" required="false" type="String" searchable="true" size="80" compactDisplay="false" ml="false" descriptionType="text" html="false" checkHtml="true">
+      <label xml:lang="fr">Nom</label>
+      <label xml:lang="en">Name</label>
+    </field>
+    <field name="prenom" editor="textfield" required="false" compactDisplay="false" type="String" searchable="false" size="80" ml="false" html="false" checkHtml="false">
+      <label xml:lang="fr">Prénom</label>
+    </field>
+    <field name="administration" editor="textfield" required="false" compactDisplay="false" type="String" searchable="false" size="80" ml="false" html="false" checkHtml="false">
+      <label xml:lang="fr">Administration</label>
+    </field>
+    <field name="direction" editor="textfield" required="false" compactDisplay="false" type="String" searchable="false" size="80" ml="false" html="false" checkHtml="false">
+      <label xml:lang="fr">Direction</label>
+    </field>
+    <field name="serviceUnite" editor="textfield" required="false" compactDisplay="false" type="String" searchable="false" size="80" ml="false" html="false" checkHtml="false">
+      <label xml:lang="fr">Service / Unité</label>
+    </field>
+    <field name="adresse" editor="textfield" required="false" compactDisplay="false" type="String" searchable="false" size="80" ml="false" html="false" checkHtml="false">
+      <label xml:lang="fr">Adresse</label>
+    </field>
+    <field name="complementDadresse" editor="textfield" required="false" compactDisplay="false" type="String" searchable="false" size="80" ml="false" html="false" checkHtml="false">
+      <label xml:lang="fr">Complément d'adresse</label>
+    </field>
+    <field name="codePostal" editor="textfield" required="false" compactDisplay="false" type="String" searchable="false" size="80" ml="false" html="false" checkHtml="false" descriptionType="text" maxlength="6">
+      <label xml:lang="fr">Code postal</label>
+      <description xml:lang="fr">(Exemple : 44000)</description>
+    </field>
+    <field name="ville" editor="textfield" required="false" type="String" searchable="true" size="80" compactDisplay="false" ml="false" descriptionType="tooltip" html="false" checkHtml="false">
+      <label xml:lang="fr">Ville</label>
+    </field>
+    <field name="telephone" editor="textfield" required="false" compactDisplay="false" type="String" searchable="false" size="80" ml="false" html="false" checkHtml="false" descriptionType="text" maxlength="10">
+      <label xml:lang="fr">Téléphone</label>
+      <description xml:lang="fr">(Exemple : 02 40 99 10 00)</description>
+    </field>
+    <field name="numeroDuPoste" editor="textfield" required="false" compactDisplay="false" type="String" searchable="false" size="80" ml="false" html="false" checkHtml="false">
+      <label xml:lang="fr">Numéro du poste</label>
+    </field>
+    <field name="courriel" editor="textfield" required="false" compactDisplay="false" type="String" searchable="false" size="50" ml="false" html="false" checkHtml="false" descriptionType="text" maxlength="500">
+      <label xml:lang="fr">Courriel</label>
+      <description xml:lang="fr">(Exemple: contact@exemple.fr)</description>
+    </field>
+    <field name="fax" editor="textfield" required="false" compactDisplay="false" type="String" searchable="false" size="80" ml="false" html="false" checkHtml="false" descriptionType="text">
+      <label xml:lang="fr">Fax</label>
+      <description xml:lang="fr">(Exemple: 02 40 99 10 01)</description>
+    </field>
+    <field name="numeroDeVersement" editor="textfield" required="false" compactDisplay="false" type="String" searchable="false" size="80" ml="false" html="false" checkHtml="false" descriptionType="text" maxlength="4">
+      <label xml:lang="fr">N° de versement (4 chiffres)</label>
+    </field>
+    <field name="numeroDuDossier" editor="textfield" required="false" compactDisplay="false" type="String" searchable="false" size="80" ml="false" html="false" checkHtml="false" descriptionType="text" maxlength="4">
+      <label xml:lang="fr">N° du dossier (1 à 4 chiffres)</label>
+    </field>
+    <field name="natureDeLaRecherche" editor="textarea" required="false" compactDisplay="false" type="String" searchable="false" rows="5" cols="80" ml="false" wiki="false" wikiwyg="false" html="false" checkHtml="false">
+      <label xml:lang="fr">Nature de la recherche</label>
+    </field>
+    <field name="dateDeVersement" editor="textfield" required="false" compactDisplay="false" type="String" searchable="false" size="80" ml="false" html="false" checkHtml="false">
+      <label xml:lang="fr">Date de versement</label>
+    </field>
+    <field name="retourDuDossierPrevuLe" editor="textfield" required="false" compactDisplay="false" type="String" searchable="false" size="80" ml="false" html="false" checkHtml="false">
+      <label xml:lang="fr">Retour du dossier prévu le</label>
+    </field>
+ </fields>
+</type>
+
