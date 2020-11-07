@@ -21,6 +21,7 @@ jcmsplugin.archives.form.communication.natureRecherche : Nature de la recherche
 jcmsplugin.archives.form.communication.dateVersement : Date de versement
 jcmsplugin.archives.form.communication.dateRetour : Retour du dossier prévu le
 jcmsplugin.archives.form.communication.boutonEnvoi.title : Envoyer votre demande aux Archives départementales
+jcmsplugin.socle.form.contact-mail.origine : Archives départementales de Loire-Atlantique
 
 # ------------------------------------------------------------
 #  Email
