@@ -20,7 +20,7 @@ public final class ArchivesMailUtils extends MailUtils {
 
   private static final Logger LOGGER = Logger.getLogger(ArchivesMailUtils.class);
 
-  private ArchivesMailUtils() {
+  public ArchivesMailUtils() {
     throw new IllegalStateException("Utility class");
   }
 
