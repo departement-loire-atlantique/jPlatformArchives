@@ -13,6 +13,8 @@
   <types>
     <type name="ArchiveDigitized"></type>
     <type name="CommunicationForm"><file path="editFormCommunicationForm.jsp" /></type>
+    <type name="RechercheJugementForm"><file path="editFormRechercheJugementForm.jsp" /></type>
+    <type name="AutreRechercheForm"><file path="editFormAutreRechercheForm.jsp" /></type>
     <type name="ConditionsDeReutilisation"></type>
     <type name="MethodologyCard"></type>
     <type name="Paleography"></type>

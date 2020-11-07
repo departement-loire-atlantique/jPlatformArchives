@@ -1,27 +1,54 @@
 # ------------------------------------------------------------
 #  Formulaires
 # ------------------------------------------------------------
-jcmsplugin.archives.form.communication.vous-etes : Vous êtes
-jcmsplugin.archives.form.communication.nom : Nom
-jcmsplugin.archives.form.communication.prenom : Prénom
-jcmsplugin.archives.form.communication.administration : Administration
-jcmsplugin.archives.form.communication.direction : Direction
-jcmsplugin.archives.form.communication.service : Service / Unité
-jcmsplugin.archives.form.communication.coordonnees : Vos coordonnées
-jcmsplugin.archives.form.communication.adresse : Adresse
-jcmsplugin.archives.form.communication.complementAdresse : complément d'adresse
-jcmsplugin.archives.form.communication.codePostal : Code postal
-jcmsplugin.archives.form.communication.ville : Ville
-jcmsplugin.archives.form.communication.telephone : Téléphone
-jcmsplugin.archives.form.communication.courriel : Courriel
-jcmsplugin.archives.form.communication.caracteristiquesRecherche : Caractéristiques de la recherche
-jcmsplugin.archives.form.communication.versement : N° de versement (4 chiffres)
-jcmsplugin.archives.form.communication.dossier : N° du dossier (1 à 4 chiffres)
-jcmsplugin.archives.form.communication.natureRecherche : Nature de la recherche
-jcmsplugin.archives.form.communication.dateVersement : Date de versement
-jcmsplugin.archives.form.communication.dateRetour : Retour du dossier prévu le
-jcmsplugin.archives.form.communication.boutonEnvoi.title : Envoyer votre demande aux Archives départementales
+jcmsplugin.archives.form.vous-etes : Vous êtes
+jcmsplugin.archives.form.nom : Nom
+jcmsplugin.archives.form.prenom : Prénom
+jcmsplugin.archives.form.administration : Administration
+jcmsplugin.archives.form.direction : Direction
+jcmsplugin.archives.form.service : Service / Unité
+jcmsplugin.archives.form.coordonnees : Vos coordonnées
+jcmsplugin.archives.form.adresse : Adresse
+jcmsplugin.archives.form.complementAdresse : complément d'adresse
+jcmsplugin.archives.form.codePostal : Code postal
+jcmsplugin.archives.form.ville : Ville
+jcmsplugin.archives.form.telephone : Téléphone
+jcmsplugin.archives.form.courriel : Courriel
+jcmsplugin.archives.form.caracteristiquesRecherche : Caractéristiques de la recherche
+jcmsplugin.archives.form.versement : N° de versement (4 chiffres)
+jcmsplugin.archives.form.dossier : N° du dossier (1 à 4 chiffres)
+jcmsplugin.archives.form.natureRecherche : Nature de la recherche
+jcmsplugin.archives.form.dateVersement : Date de versement
+jcmsplugin.archives.form.dateRetour : Retour du dossier prévu le
+jcmsplugin.archives.form.boutonEnvoi.title : Envoyer votre demande aux Archives départementales
 jcmsplugin.socle.form.contact-mail.origine : Archives départementales de Loire-Atlantique
+
+jcmsplugin.archives.form.caracteristiquesJugement: Caractéristiques du jugement
+jcmsplugin.archives.form.anneeJugement: Année du jugement
+jcmsplugin.archives.form.dateJugement: Date précise du jugement
+jcmsplugin.archives.form.lieuJugement: Lieu du tribunal
+jcmsplugin.archives.form.commentaireDateJugement: Seules les demandes de jugement de plus de 30 ans seront traitées. Pour les documents de moins de 30 ans, vous êtes invités à contacter le tribunal concerné.
+jcmsplugin.archives.form.concernesJugement: Nom de la ou des personnes concernées par le jugement
+jcmsplugin.archives.form.motifJugement: Motif du jugement
+jcmsplugin.archives.form.motivationDemandeJugement: Contexte et motivations de la demande
+jcmsplugin.archives.form.commentaireMotivations: Merci de préciser votre statut : notaire, généalogiste professionnel, enfant de la ou des personnes concernées par le jugement, etc
+jcmsplugin.archives.form.nomPersonne1: Nom de la 1e personne
+jcmsplugin.archives.form.prenomPersonne1: Prénom de la 1e personne
+jcmsplugin.archives.form.nomPersonne2: Nom de la 2e personne
+jcmsplugin.archives.form.prenomPersonne2: Prénom de la 2e personne
+jcmsplugin.archives.form.autreMotifJugement: Autre : précisez
+jcmsplugin.archives.form.motivations: Mention texte libre
+jcmsplugin.archives.form.motifDivorce: Divorce
+jcmsplugin.archives.form.motifAdoption: Adoption
+jcmsplugin.archives.form.motifAutre: Autre
+
+jcmsplugin.archives.form.votre-demande : Votre demande
+
+jcmsplugin.archives.form.ctrl.motifJugement: Merci de renseigner le motif de jugement (champ "autre")
+jcmsplugin.archives.form.ctrl.datesJugement: Merci de renseigner une date (année ou date complète)
+
+jcmsplugin.archives.form.exemple.anneeJugement: Exemple : 1939
+jcmsplugin.archives.form.exemple.dateJugement: Exemple : 25/03/1939
 
 # ------------------------------------------------------------
 #  Email
@@ -29,6 +56,12 @@ jcmsplugin.socle.form.contact-mail.origine : Archives départementales de Loire-
 jcmsplugin.archives.email.communication.objet: Votre demande de communication administrative
 jcmsplugin.archives.email.communication.titre: Communication administrative
 jcmsplugin.archives.email.communication.sous-titre: Voici le contenu de votre demande faite le 
+
+jcmsplugin.archives.email.jugement.objet: Votre demande de recherche de jugement
+jcmsplugin.archives.email.jugement.titre: Recherche de jugement
+
+jcmsplugin.archives.email.autre-recherche.objet: Votre demande de recherche
+jcmsplugin.archives.email.autre-recherche.titre: Recherche
 
 # Réseaux sociaux
 jcmsplugin.socle.socialnetworks.title: Les archives départementales de Loire-Atlantique sur 
