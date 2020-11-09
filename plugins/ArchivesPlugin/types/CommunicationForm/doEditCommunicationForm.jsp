@@ -19,11 +19,11 @@ String formAction = "plugins/SoclePlugin/jsp/forms/checkArchivesCommunicationAdm
         <p class="ds44-textLegend ds44-textLegend--mentions"><%= glp("jcmsplugin.socle.facette.champs-obligatoires") %></p>
         <form data-is-ajax='true' data-is-inline="true" data-empty-after-submit="true" action='<%= formAction %>' method="post">
             <div class="ds44-mb3">
-                <h2 class="h3-like"><%= glp("jcmsplugin.archives.form.communication.vous-etes") %></h2>
+                <h2 class="h3-like"><%= glp("jcmsplugin.archives.form.vous-etes") %></h2>
                 <ul class="ds44-list grid-12">
                 
                     <%-- Nom ------------------------------------------------------------ --%>
-                    <% String nomLabel = glp("jcmsplugin.archives.form.communication.nom"); %>
+                    <% String nomLabel = glp("jcmsplugin.archives.form.nom"); %>
                     <li class="col-6 ds44-minTiny-margin-r">
                         <div class="ds44-form__container">
                             <div class="ds44-posRel">
@@ -34,7 +34,7 @@ String formAction = "plugins/SoclePlugin/jsp/forms/checkArchivesCommunicationAdm
                     </li>
                     
                     <%-- Prenom ------------------------------------------------------------ --%>
-                    <% String prenomLabel = glp("jcmsplugin.archives.form.communication.prenom"); %>
+                    <% String prenomLabel = glp("jcmsplugin.archives.form.prenom"); %>
                     <li class="col-6 ds44-minTiny-margin-l">
                         <div class="ds44-form__container">
                             <div class="ds44-posRel">
@@ -45,7 +45,7 @@ String formAction = "plugins/SoclePlugin/jsp/forms/checkArchivesCommunicationAdm
                     </li>
 
                     <%-- Administration ------------------------------------------------------------ --%>
-                    <% String administrationLabel = glp("jcmsplugin.archives.form.communication.administration"); %>
+                    <% String administrationLabel = glp("jcmsplugin.archives.form.administration"); %>
                     <li class="col-12">
                         <div class="ds44-form__container">
                             <div class="ds44-posRel">
@@ -56,7 +56,7 @@ String formAction = "plugins/SoclePlugin/jsp/forms/checkArchivesCommunicationAdm
                     </li>
                     
                     <%-- Direction ------------------------------------------------------------ --%>
-                    <% String directionLabel = glp("jcmsplugin.archives.form.communication.direction"); %>
+                    <% String directionLabel = glp("jcmsplugin.archives.form.direction"); %>
                     <li class="col-12">
                         <div class="ds44-form__container">
                             <div class="ds44-posRel">
@@ -67,7 +67,7 @@ String formAction = "plugins/SoclePlugin/jsp/forms/checkArchivesCommunicationAdm
                     </li>
 
                     <%-- ServiceUnite ------------------------------------------------------------ --%>
-                    <% String serviceLabel = glp("jcmsplugin.archives.form.communication.service"); %>
+                    <% String serviceLabel = glp("jcmsplugin.archives.form.service"); %>
                     <li class="col-12">
                         <div class="ds44-form__container">
                             <div class="ds44-posRel">
@@ -80,11 +80,11 @@ String formAction = "plugins/SoclePlugin/jsp/forms/checkArchivesCommunicationAdm
             </div>
             
             <div class="ds44-mb3">
-                <h2 class="h3-like"><%= glp("jcmsplugin.archives.form.communication.coordonnees") %></h2>
+                <h2 class="h3-like"><%= glp("jcmsplugin.archives.form.coordonnees") %></h2>
                 <ul class="ds44-list grid-12">                    
 
                     <%-- Adresse ------------------------------------------------------------ --%>
-                    <% String adresseLabel = glp("jcmsplugin.archives.form.communication.adresse"); %>
+                    <% String adresseLabel = glp("jcmsplugin.archives.form.adresse"); %>
                     <li class="col-12">
                         <div class="ds44-form__container">
                             <div class="ds44-posRel">
@@ -95,7 +95,7 @@ String formAction = "plugins/SoclePlugin/jsp/forms/checkArchivesCommunicationAdm
                     </li>
 
                     <%-- ComplementDadresse ------------------------------------------------------------ --%>
-                    <% String complementAdresseLabel = glp("jcmsplugin.archives.form.communication.complementAdresse"); %>
+                    <% String complementAdresseLabel = glp("jcmsplugin.archives.form.complementAdresse"); %>
                     <li class="col-12">
                         <div class="ds44-form__container">
                             <div class="ds44-posRel">
@@ -106,7 +106,7 @@ String formAction = "plugins/SoclePlugin/jsp/forms/checkArchivesCommunicationAdm
                     </li>
                     
                     <%-- CodePostal ------------------------------------------------------------ --%>
-                    <% String codePostalLabel = glp("jcmsplugin.archives.form.communication.codePostal"); %>
+                    <% String codePostalLabel = glp("jcmsplugin.archives.form.codePostal"); %>
                     <li class="col-6 ds44-minTiny-margin-r">
                         <div class="ds44-form__container">
                             <div class="ds44-posRel">
@@ -122,7 +122,7 @@ String formAction = "plugins/SoclePlugin/jsp/forms/checkArchivesCommunicationAdm
                     </li>
                     
                     <%-- Ville ------------------------------------------------------------ --%>
-                    <% String villeLabel = glp("jcmsplugin.archives.form.communication.ville"); %>
+                    <% String villeLabel = glp("jcmsplugin.archives.form.ville"); %>
                     <li class="col-6 ds44-minTiny-margin-l">
                         <div class="ds44-form__container">
                             <div class="ds44-posRel">
@@ -133,7 +133,7 @@ String formAction = "plugins/SoclePlugin/jsp/forms/checkArchivesCommunicationAdm
                     </li>
                     
                     <%-- Telephone ------------------------------------------------------------ --%>
-                    <% String telephoneLabel = glp("jcmsplugin.archives.form.communication.telephone"); %>
+                    <% String telephoneLabel = glp("jcmsplugin.archives.form.telephone"); %>
                     <li class="col-6 ds44-minTiny-margin-r">
                         <div class="ds44-form__container">
                             <div class="ds44-posRel">
@@ -149,7 +149,7 @@ String formAction = "plugins/SoclePlugin/jsp/forms/checkArchivesCommunicationAdm
                     </li>
                     
                     <%-- Courriel ------------------------------------------------------------ --%>
-                    <% String courrielLabel = glp("jcmsplugin.archives.form.communication.courriel"); %>
+                    <% String courrielLabel = glp("jcmsplugin.archives.form.courriel"); %>
                     <li class="col-6 ds44-minTiny-margin-l">
                         <div class="ds44-form__container">
                             <div class="ds44-posRel">
@@ -168,11 +168,11 @@ String formAction = "plugins/SoclePlugin/jsp/forms/checkArchivesCommunicationAdm
             </div>
             
             <div class="ds44-mb3">
-                <h2 class="h3-like"><%= glp("jcmsplugin.archives.form.communication.caracteristiquesRecherche") %></h2>
+                <h2 class="h3-like"><%= glp("jcmsplugin.archives.form.caracteristiquesRecherche") %></h2>
                     <ul class="ds44-list grid-12">
                 
                     <%-- NumeroDeVersement ------------------------------------------------------------ --%>
-                    <% String versementLabel = glp("jcmsplugin.archives.form.communication.versement"); %>
+                    <% String versementLabel = glp("jcmsplugin.archives.form.versement"); %>
                     <li class="col-6 ds44-minTiny-margin-r">
                         <div class="ds44-form__container">
                             <div class="ds44-posRel">
@@ -183,7 +183,7 @@ String formAction = "plugins/SoclePlugin/jsp/forms/checkArchivesCommunicationAdm
                     </li>
                     
                     <%-- NumeroDuDossier ------------------------------------------------------------ --%>
-                    <% String dossierLabel = glp("jcmsplugin.archives.form.communication.dossier"); %>
+                    <% String dossierLabel = glp("jcmsplugin.archives.form.dossier"); %>
                     <li class="col-6 ds44-minTiny-margin-l">
                         <div class="ds44-form__container">
                             <div class="ds44-posRel">
@@ -194,7 +194,7 @@ String formAction = "plugins/SoclePlugin/jsp/forms/checkArchivesCommunicationAdm
                     </li>
 
                     <%-- NatureDeLaRecherche ------------------------------------------------------------ --%>
-                    <% String natureRechercheLabel = glp("jcmsplugin.archives.form.communication.natureRecherche"); %>
+                    <% String natureRechercheLabel = glp("jcmsplugin.archives.form.natureRecherche"); %>
                     <li class="col-12">
                         <div class="ds44-form__container">
                             <div class="ds44-posRel">
@@ -205,7 +205,7 @@ String formAction = "plugins/SoclePlugin/jsp/forms/checkArchivesCommunicationAdm
                     </li>
                     
                     <%-- DateDeVersement ------------------------------------------------------------ --%>
-                    <% String dateVersementLabel = glp("jcmsplugin.archives.form.communication.dateVersement"); %>
+                    <% String dateVersementLabel = glp("jcmsplugin.archives.form.dateVersement"); %>
                     <li class="col-6 ds44-minTiny-margin-r">
                         <div class="ds44-form__container">
 	                        <div class="ds44-posRel">
@@ -229,7 +229,7 @@ String formAction = "plugins/SoclePlugin/jsp/forms/checkArchivesCommunicationAdm
                     </li>
                     
                     <%-- RetourDuDossierPrevuLe ------------------------------------------------------------ --%>
-                    <% String dateRetourLabel = glp("jcmsplugin.archives.form.communication.dateRetour"); %>
+                    <% String dateRetourLabel = glp("jcmsplugin.archives.form.dateRetour"); %>
                     <li class="col-6 ds44-minTiny-margin-l">
                         <div class="ds44-form__container">
                             <div class="ds44-posRel">
@@ -255,7 +255,7 @@ String formAction = "plugins/SoclePlugin/jsp/forms/checkArchivesCommunicationAdm
             </div>             
 
 	        <div class="txtcenter ds44-mt-std">
-	            <button class="ds44-btnStd" title="<%= glp("jcmsplugin.archives.form.communication.boutonEnvoi.title") %>">
+	            <button class="ds44-btnStd" title="<%= glp("jcmsplugin.archives.form.boutonEnvoi.title") %>">
 	                <span class="ds44-btnInnerText"><%= glp("jcmsplugin.socle.envoyer") %></span>
 	                <i class="icon icon-long-arrow-right" aria-hidden="true"></i>
 	            </button>
