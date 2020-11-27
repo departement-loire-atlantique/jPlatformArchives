@@ -17,7 +17,7 @@ String formAction = "plugins/SoclePlugin/jsp/forms/checkArchivesRechercheJugemen
 <article class="ds44-container-large ds44-mtb5">
     <div class="ds44-inner-container ds44-grid12-offset-1">
         <p class="ds44-textLegend ds44-textLegend--mentions"><%= glp("jcmsplugin.socle.facette.champs-obligatoires") %></p>
-        <form data-is-ajax='true' data-is-inline="true" data-empty-after-submit="false" action='<%= formAction %>' method="post">
+        <form data-is-ajax='true' data-is-inline="true" data-empty-after-submit="true" action='<%= formAction %>' method="post">
             <div class="ds44-mb3">
                 <h2 class="h3-like"><%= glp("jcmsplugin.archives.form.vous-etes") %></h2>
                 <ul class="ds44-list grid-12">
