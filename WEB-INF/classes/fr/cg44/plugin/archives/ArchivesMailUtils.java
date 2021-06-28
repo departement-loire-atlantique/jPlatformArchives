@@ -60,7 +60,7 @@ public final class ArchivesMailUtils {
     parametersMap.put("ville", form.getVille());
     parametersMap.put("telephone", form.getTelephone());
     parametersMap.put("courriel", form.getCourriel());
-    parametersMap.put("versement", form.getDateDeVersement());
+    parametersMap.put("versement", form.getNumeroDeVersement());
     parametersMap.put("dossier", form.getNumeroDuDossier());
     parametersMap.put("natureRecherche", form.getNatureDeLaRecherche());
     parametersMap.put("dateVersement", form.getDateDeVersement());
