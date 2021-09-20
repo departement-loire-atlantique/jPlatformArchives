@@ -7,7 +7,7 @@
 %><% Paleography obj = (Paleography)request.getAttribute(PortalManager.PORTAL_PUBLICATION); %><%
 %><%@ include file='/front/doFullDisplay.jspf' %>
 
-<main role="main" id="contentPaleography">
+<main role="main" id="content">
    <article class="ds44-container-large">
       <div class="ds44-lightBG ds44-posRel">
          <%-- bouton Retour a la liste --%>
