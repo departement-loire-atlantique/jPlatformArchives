@@ -25,8 +25,8 @@
          <div class="ds44-inner-container">
             <div class="ds44-grid12-offset-1">
                <jalios:if predicate="<%= Util.notEmpty(obj.getTextRecall()) %>">
-                   <figure class="ds44-legendeContainer ds44-imgLoupe" role="figure">
-                       <img class="ds44-w100" src="<%= obj.getTextRecall() %>">
+                   <figure class="ds44-legendeContainer ds44-imgLoupe">
+                       <img class="ds44-w100" src="<%= obj.getTextRecall() %>" alt='<%= glp("jcmsplugin.socle.paleography.alt.img")%>' />
                    </figure>
                </jalios:if>
                <div class="ds44-theme ds44-flex-valign-center ds44-flex-container ds44-fse ds44--l-padding ">

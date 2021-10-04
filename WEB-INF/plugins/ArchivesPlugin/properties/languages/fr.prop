@@ -65,3 +65,6 @@ jcmsplugin.archives.email.autre-recherche.titre: Recherche
 
 # Réseaux sociaux
 jcmsplugin.socle.socialnetworks.title: Les archives départementales de Loire-Atlantique sur 
+
+# Paleographie
+jcmsplugin.socle.paleography.alt.img: Photographie du bail manuscrit. Transcription disponible en dessous.
