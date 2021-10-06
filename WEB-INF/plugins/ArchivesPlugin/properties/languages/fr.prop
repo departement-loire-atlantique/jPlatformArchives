@@ -32,10 +32,10 @@ jcmsplugin.archives.form.concernesJugement: Nom de la ou des personnes concerné
 jcmsplugin.archives.form.motifJugement: Motif du jugement
 jcmsplugin.archives.form.motivationDemandeJugement: Contexte et motivations de la demande
 jcmsplugin.archives.form.commentaireMotivations: Merci de préciser votre statut : notaire, généalogiste professionnel, enfant de la ou des personnes concernées par le jugement, etc
-jcmsplugin.archives.form.nomPersonne1: Nom de la 1e personne
-jcmsplugin.archives.form.prenomPersonne1: Prénom de la 1e personne
-jcmsplugin.archives.form.nomPersonne2: Nom de la 2e personne
-jcmsplugin.archives.form.prenomPersonne2: Prénom de la 2e personne
+jcmsplugin.archives.form.nomPersonne1: Nom de la première personne
+jcmsplugin.archives.form.prenomPersonne1: Prénom de la première personne
+jcmsplugin.archives.form.nomPersonne2: Nom de la seconde personne
+jcmsplugin.archives.form.prenomPersonne2: Prénom de la seconde personne
 jcmsplugin.archives.form.autreMotifJugement: Autre : précisez
 jcmsplugin.archives.form.motivations: Mention texte libre
 jcmsplugin.archives.form.motifDivorce: Divorce

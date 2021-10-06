@@ -18,7 +18,7 @@ String formAction = "plugins/SoclePlugin/jsp/forms/checkArchivesRechercheJugemen
     <div class="ds44-inner-container ds44-grid12-offset-1">
         <p class="ds44-textLegend ds44-textLegend--mentions"><%= glp("jcmsplugin.socle.facette.champs-obligatoires") %></p>
         <form data-is-ajax='true' data-is-inline="true" data-empty-after-submit="true" action='<%= formAction %>' method="post">
-            <div class="ds44-mb3">
+            <fieldset class="ds44-mb3">
                 <h2 class="h3-like"><%= glp("jcmsplugin.archives.form.vous-etes") %></h2>
                 <ul class="ds44-list grid-12">
                 
@@ -127,10 +127,10 @@ String formAction = "plugins/SoclePlugin/jsp/forms/checkArchivesRechercheJugemen
                     </li>
 
                 </ul>
-            </div>
+            </fieldset>
             
          
-            <div class="ds44-mb3">
+            <fieldset class="ds44-mb3">
                 <h2 class="h3-like"><%= glp("jcmsplugin.archives.form.caracteristiquesJugement") %></h2>
                     <ul class="ds44-list grid-12">
                 
@@ -190,9 +190,9 @@ String formAction = "plugins/SoclePlugin/jsp/forms/checkArchivesRechercheJugemen
                     </li>
                                    
                 </ul>
-            </div>
+            </fieldset>
 
-            <div class="ds44-mb3">
+            <fieldset class="ds44-mb3">
                 <h2 class="h3-like"><%= glp("jcmsplugin.archives.form.concernesJugement") %></h2>
                     <ul class="ds44-list grid-12">
                     
@@ -224,7 +224,7 @@ String formAction = "plugins/SoclePlugin/jsp/forms/checkArchivesRechercheJugemen
                             <div class="ds44-form__container">
                                 <div class="ds44-posRel">
                                     <label for="form-element-nomPersonne2" class="ds44-formLabel"><span class="ds44-labelTypePlaceholder"><span><%= nomLabel %></span></span></label>
-                                    <input type="text" id="form-element-nomPersonne2" name="nomPersonne2" class="ds44-inpStd" /><button class="ds44-reset" type="button"><i class="icon icon-cross icon--sizeL" aria-hidden="true"></i><span class="visually-hidden"><%= glp("jcmsplugin.socle.facette.effacer-contenu-champ", nomPersonne2Label) %></span></button>
+                                    <input type="text" id="form-element-nomPersonne2" name="nomPersonne2" class="ds44-inpStd" title="<%= nomPersonne2Label %>"/><button class="ds44-reset" type="button"><i class="icon icon-cross icon--sizeL" aria-hidden="true"></i><span class="visually-hidden"><%= glp("jcmsplugin.socle.facette.effacer-contenu-champ", nomPersonne2Label) %></span></button>
                                 </div>
                             </div>
                         </li>
@@ -235,14 +235,14 @@ String formAction = "plugins/SoclePlugin/jsp/forms/checkArchivesRechercheJugemen
                             <div class="ds44-form__container">
                                 <div class="ds44-posRel">
                                     <label for="form-element-prenomPersonne2" class="ds44-formLabel"><span class="ds44-labelTypePlaceholder"><span><%= prenomLabel %></span></span></label>
-                                    <input type="text" id="form-element-prenomPersonne2" name="prenomPersonne2" class="ds44-inpStd" /><button class="ds44-reset" type="button"><i class="icon icon-cross icon--sizeL" aria-hidden="true"></i><span class="visually-hidden"><%= glp("jcmsplugin.socle.facette.effacer-contenu-champ", prenomPersonne2Label) %></span></button>
+                                    <input type="text" id="form-element-prenomPersonne2" name="prenomPersonne2" class="ds44-inpStd" title="<%= prenomPersonne2Label %>" /><button class="ds44-reset" type="button"><i class="icon icon-cross icon--sizeL" aria-hidden="true"></i><span class="visually-hidden"><%= glp("jcmsplugin.socle.facette.effacer-contenu-champ", prenomPersonne2Label) %></span></button>
                                 </div>
                             </div>
                         </li>	                    
                     </ul>
-            </div>
+            </fieldset>
             
-            <div class="ds44-mb3">
+            <fieldset class="ds44-mb3">
                 <h2 class="h3-like"><%= glp("jcmsplugin.archives.form.motifJugement") %></h2>
                     <ul class="ds44-list grid-12">
                         <li class="col-6 ds44-minTiny-margin-r">                    
@@ -262,13 +262,13 @@ String formAction = "plugins/SoclePlugin/jsp/forms/checkArchivesRechercheJugemen
 						        <div class="ds44-select-container hidden">
 						            <div class="ds44-listSelect">
 						                <ul class="ds44-list" role="listbox" id="listbox-form-element-motifJugement" aria-labelledby="button-message-form-element-motifJugement"  aria-required="true">
-					                        <li class="ds44-select-list_elem" name="motifJugement" data-value="<%= glp("jcmsplugin.archives.form.motifDivorce") %>" id="form-element-motifDivorce" tabindex="0">
+					                        <li role="option" class="ds44-select-list_elem" name="motifJugement" data-value="<%= glp("jcmsplugin.archives.form.motifDivorce") %>" id="form-element-motifDivorce" tabindex="0">
 					                            <%= glp("jcmsplugin.archives.form.motifDivorce") %>
 					                        </li>
-					                        <li class="ds44-select-list_elem" name="motifJugement" data-value="<%= glp("jcmsplugin.archives.form.motifAdoption") %>" id="form-element-motifAdoption" tabindex="0">
+					                        <li role="option" class="ds44-select-list_elem" name="motifJugement" data-value="<%= glp("jcmsplugin.archives.form.motifAdoption") %>" id="form-element-motifAdoption" tabindex="0">
                                                 <%= glp("jcmsplugin.archives.form.motifAdoption") %>
                                             </li>
-                                            <li class="ds44-select-list_elem" name="motifJugement" data-value="<%= glp("jcmsplugin.archives.form.motifAutre") %>" id="form-element-motifAutre" tabindex="0">
+                                            <li role="option" class="ds44-select-list_elem" name="motifJugement" data-value="<%= glp("jcmsplugin.archives.form.motifAutre") %>" id="form-element-motifAutre" tabindex="0">
                                                 <%= glp("jcmsplugin.archives.form.motifAutre") %>
                                             </li>
 						                </ul>
@@ -288,9 +288,9 @@ String formAction = "plugins/SoclePlugin/jsp/forms/checkArchivesRechercheJugemen
                             </div>
                         </li>
                     </ul>
-            </div>
+            </fieldset>
             
-            <div class="ds44-mb3">
+            <fieldset class="ds44-mb3">
                 <h2 class="h3-like"><%= glp("jcmsplugin.archives.form.motivationDemandeJugement") %></h2>
                     <ul class="ds44-list grid-12">
                     
@@ -309,7 +309,7 @@ String formAction = "plugins/SoclePlugin/jsp/forms/checkArchivesRechercheJugemen
                     <div class="col-12">
                         <p id="explanation-form-element-motivations" class="ds44-textLegend ds44-textLegend--mentions"><%= glp("jcmsplugin.archives.form.commentaireMotivations") %></p>
                     </div>
-            </div>            
+            </fieldset>            
 
             <div class="txtcenter ds44-mt-std">
                 <button class="ds44-btnStd" title="<%= glp("jcmsplugin.archives.form.boutonEnvoi.title") %>">
