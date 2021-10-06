@@ -30,7 +30,7 @@
                    </figure>
                </jalios:if>
                <div class="ds44-theme ds44-flex-valign-center ds44-flex-container ds44-fse ds44--l-padding ">
-                  <span class="ds44-docListElem"><i class="icon icon-tag ds44-docListIco" aria-hidden="true"></i><%= SocleUtils.formatCategories(obj.getLevels(loggedMember)) %></span>
+                  <p class="ds44-docListElem"><i class="icon icon-tag ds44-docListIco" aria-hidden="true"></i><%= SocleUtils.formatCategories(obj.getLevels(loggedMember)) %></p>
                </div>
             </div>
          </div>
