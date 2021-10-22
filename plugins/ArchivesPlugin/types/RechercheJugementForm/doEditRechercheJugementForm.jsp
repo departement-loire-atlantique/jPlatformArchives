@@ -201,7 +201,7 @@ String formAction = "plugins/SoclePlugin/jsp/forms/checkArchivesRechercheJugemen
 	                    <li class="col-6 ds44-minTiny-margin-r">
 	                        <div class="ds44-form__container">
 	                            <div class="ds44-posRel">
-	                                <label for="form-element-nomPersonne1" class="ds44-formLabel"><span class="ds44-labelTypePlaceholder"><span><%= nomLabel %><sup aria-hidden="true">*</sup></span></span></label>
+	                                <label for="form-element-nomPersonne1" class="ds44-formLabel"><span class="ds44-labelTypePlaceholder"><span><%= nomPersonne1Label %><sup aria-hidden="true">*</sup></span></span></label>
 	                                <input type="text" id="form-element-nomPersonne1" name="nomPersonne1" class="ds44-inpStd" title="<%= glp("jcmsplugin.socle.facette.champ-obligatoire.title", nomPersonne1Label) %>" required /><button class="ds44-reset" type="button"><i class="icon icon-cross icon--sizeL" aria-hidden="true"></i><span class="visually-hidden"><%= glp("jcmsplugin.socle.facette.effacer-contenu-champ", nomPersonne1Label) %></span></button>
 	                            </div>
 	                        </div>
@@ -212,7 +212,7 @@ String formAction = "plugins/SoclePlugin/jsp/forms/checkArchivesRechercheJugemen
 	                    <li class="col-6 ds44-minTiny-margin-l">
 	                        <div class="ds44-form__container">
 	                            <div class="ds44-posRel">
-	                                <label for="form-element-prenomPersonne1" class="ds44-formLabel"><span class="ds44-labelTypePlaceholder"><span><%= prenomLabel %><sup aria-hidden="true">*</sup></span></span></label>
+	                                <label for="form-element-prenomPersonne1" class="ds44-formLabel"><span class="ds44-labelTypePlaceholder"><span><%= prenomPersonne1Label %><sup aria-hidden="true">*</sup></span></span></label>
 	                                <input type="text" id="form-element-prenomPersonne1" name="prenomPersonne1" class="ds44-inpStd" title="<%= glp("jcmsplugin.socle.facette.champ-obligatoire.title", prenomPersonne1Label) %>" required /><button class="ds44-reset" type="button"><i class="icon icon-cross icon--sizeL" aria-hidden="true"></i><span class="visually-hidden"><%= glp("jcmsplugin.socle.facette.effacer-contenu-champ", prenomPersonne1Label) %></span></button>
 	                            </div>
 	                        </div>
@@ -223,7 +223,7 @@ String formAction = "plugins/SoclePlugin/jsp/forms/checkArchivesRechercheJugemen
                         <li class="col-6 ds44-minTiny-margin-r">
                             <div class="ds44-form__container">
                                 <div class="ds44-posRel">
-                                    <label for="form-element-nomPersonne2" class="ds44-formLabel"><span class="ds44-labelTypePlaceholder"><span><%= nomLabel %></span></span></label>
+                                    <label for="form-element-nomPersonne2" class="ds44-formLabel"><span class="ds44-labelTypePlaceholder"><span><%= nomPersonne2Label %></span></span></label>
                                     <input type="text" id="form-element-nomPersonne2" name="nomPersonne2" class="ds44-inpStd" title="<%= nomPersonne2Label %>"/><button class="ds44-reset" type="button"><i class="icon icon-cross icon--sizeL" aria-hidden="true"></i><span class="visually-hidden"><%= glp("jcmsplugin.socle.facette.effacer-contenu-champ", nomPersonne2Label) %></span></button>
                                 </div>
                             </div>
@@ -234,7 +234,7 @@ String formAction = "plugins/SoclePlugin/jsp/forms/checkArchivesRechercheJugemen
                         <li class="col-6 ds44-minTiny-margin-l">
                             <div class="ds44-form__container">
                                 <div class="ds44-posRel">
-                                    <label for="form-element-prenomPersonne2" class="ds44-formLabel"><span class="ds44-labelTypePlaceholder"><span><%= prenomLabel %></span></span></label>
+                                    <label for="form-element-prenomPersonne2" class="ds44-formLabel"><span class="ds44-labelTypePlaceholder"><span><%= prenomPersonne2Label %></span></span></label>
                                     <input type="text" id="form-element-prenomPersonne2" name="prenomPersonne2" class="ds44-inpStd" title="<%= prenomPersonne2Label %>" /><button class="ds44-reset" type="button"><i class="icon icon-cross icon--sizeL" aria-hidden="true"></i><span class="visually-hidden"><%= glp("jcmsplugin.socle.facette.effacer-contenu-champ", prenomPersonne2Label) %></span></button>
                                 </div>
                             </div>
