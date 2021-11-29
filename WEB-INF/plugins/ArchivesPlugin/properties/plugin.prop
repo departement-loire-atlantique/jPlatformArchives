@@ -23,6 +23,12 @@ $jcmsplugin.archives.import.organisme.navigation.root: c_5011
 $jcmsplugin.archives.category.paleography.root: c_22624
 $jcmsplugin.archives.category.methodologycard.root: c_5804
 
+# Catégories Périodique
+$jcmsplugin.archives.category.periodique.frequenceparution: c_32886
+$jcmsplugin.archives.category.periodique.theme: c_32039
+$jcmsplugin.archives.category.periodique.tendancespolitiques: c_32042
+$jcmsplugin.archives.category.periodique.periode: c_32038
+
 # Formulaires
 jcmsplugin.archives.form.mailTo: archives@loire-atlantique.fr
 jcmsplugin.archives.form.from: archives@loire-atlantique.fr
