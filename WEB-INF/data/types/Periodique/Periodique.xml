@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<type name="Periodique" superclass="com.jalios.jcms.Content" debatable="false" unitFieldEdition="true" audienced="false" categoryTab="true" readRightTab="true" updateRightTab="true" templateTab="true" workflowTab="true" advancedTab="true">
+  <label xml:lang="fr">Périodique</label>
+  <title ml="true">
+    <label xml:lang="en">Title</label>
+    <label xml:lang="fr">Titre</label>
+  </title>
+  <fields>
+    <field name="imageBandeau" editor="textfield" required="false" compactDisplay="false" type="String" searchable="false" size="80" ml="false" html="false" checkHtml="true" descriptionType="text">
+      <label xml:lang="fr">Image bandeau</label>
+      <description xml:lang="fr">&lt;div class="wysiwyg"&gt;&lt;p&gt;Format attendu : 1240x460px&lt;/p&gt;&lt;/div&gt;</description>
+    </field>
+    <field name="copyright" editor="textfield" required="false" compactDisplay="false" type="String" searchable="false" size="80" ml="false" html="false" checkHtml="true">
+      <label xml:lang="fr">Copyright</label>
+    </field>
+    <field name="legende" editor="textfield" required="false" compactDisplay="false" type="String" searchable="false" size="80" ml="false" html="false" checkHtml="true" descriptionType="tooltip">
+      <label xml:lang="fr">Légende</label>
+    </field>
+    <field name="texteAlternatif" editor="textfield" required="false" compactDisplay="false" type="String" searchable="false" size="80" ml="false" html="false" checkHtml="true">
+      <label xml:lang="fr">Texte alternatif</label>
+    </field>
+    <field name="coteDePeriodique" editor="textfield" required="true" compactDisplay="false" tab="contenu" type="String" searchable="false" size="80" ml="true" html="false" checkHtml="true" descriptionType="text">
+      <label xml:lang="fr">Cote de périodique</label>
+      <description xml:lang="fr">&lt;div class="wysiwyg"&gt;&lt;p&gt;&lt;span style="color: #172b4d; font-size: 16px; font-style: normal; font-weight: 400; text-align: left; text-indent: 0px; background-color: #ffffff; float: none;"&gt;(ex : PR 447/8 - PR 447/31. PR 448/1 - PR 448/6)&lt;/span&gt;&lt;/p&gt;&lt;/div&gt;</description>
+    </field>
+    <field name="datesExtremesDeLaCollection" editor="textfield" required="true" compactDisplay="false" tab="contenu" type="String" searchable="false" size="80" ml="true" html="false" checkHtml="true">
+      <label xml:lang="fr">Dates extrêmes de la collection</label>
+    </field>
+    <field name="datesExtremesDeLaCollectionNumer" editor="textfield" required="false" compactDisplay="false" tab="contenu" type="String" searchable="false" size="80" ml="true" html="false" checkHtml="true" descriptionType="text">
+      <label xml:lang="fr">Dates extrêmes de la collection numérisée</label>
+      <description xml:lang="fr">&lt;div class="wysiwyg"&gt;&lt;p&gt;&lt;span style="color: #172b4d; font-size: 16px; font-style: normal; font-weight: 400; text-align: left; text-indent: 0px; background-color: #ffffff; float: none;"&gt;(ex : 2 janvier 1822 - 11 août 1836 ou 1922-1942)&lt;/span&gt;&lt;/p&gt;&lt;/div&gt;</description>
+    </field>
+    <field name="inventaireDeLaCollection" editor="link" required="false" compactDisplay="false" tab="contenu" type="com.jalios.jcms.FileDocument" ml="false" parent="false" descriptionType="text" searchable="false" html="false" checkHtml="true">
+      <label xml:lang="fr">Inventaire de la collection</label>
+      <description xml:lang="fr">&lt;div class="wysiwyg"&gt;&lt;p&gt;Un document PDF&lt;/p&gt;&lt;/div&gt;</description>
+    </field>
+    <field name="frequenceParution" editor="category" required="true" compactDisplay="false" tab="contenu" type="java.util.TreeSet" chooser="tree" exclusive="true" root="$jcmsplugin.archives.category.periodique.frequenceparution">
+      <label xml:lang="fr">Fréquence parution</label>
+    </field>
+    <field name="ancienTitre" editor="link" required="false" compactDisplay="false" tab="contenu" type="generated.Periodique[]">
+      <label xml:lang="fr">Ancien titre</label>
+    </field>
+    <field name="titreDevenu" editor="link" required="false" compactDisplay="false" tab="contenu" type="generated.Periodique[]">
+      <label xml:lang="fr">Titre devenu</label>
+    </field>
+    <field name="notes" editor="textarea" required="false" compactDisplay="false" tab="contenu" type="String" searchable="false" rows="5" cols="80" ml="false" wiki="false" html="false" wysiwygConfigurationId="" checkHtml="true">
+      <label xml:lang="fr">Notes</label>
+    </field>
+    <field name="siegeDuJournal" editor="link" required="false" compactDisplay="false" tab="contenu" type="generated.City" parent="false">
+      <label xml:lang="fr">Siège du journal</label>
+    </field>
+    <field name="numerise" editor="boolean" required="false" compactDisplay="false" tab="contenu" type="boolean" default="false" ml="false" descriptionType="tooltip" searchable="false" html="false" checkHtml="true">
+      <label xml:lang="fr">Numérisé</label>
+      <onLabel xml:lang="en">Yes</onLabel>
+      <onLabel xml:lang="fr">Oui</onLabel>
+      <offLabel xml:lang="en">No</offLabel>
+      <offLabel xml:lang="fr">Non</offLabel>
+    </field>
+    <field name="theme" editor="category" required="true" compactDisplay="false" tab="navigation_et_classement" type="java.util.TreeSet" chooser="tree" exclusive="false" root="$jcmsplugin.archives.category.periodique.theme">
+      <label xml:lang="fr">Thème</label>
+    </field>
+    <field name="tendencesPolitiques" editor="category" required="false" compactDisplay="false" tab="navigation_et_classement" type="java.util.TreeSet" chooser="tree" exclusive="false" root="$jcmsplugin.archives.category.periodique.tendancespolitiques">
+      <label xml:lang="fr">Tendences politiques</label>
+    </field>
+    <field name="periode" editor="category" required="true" compactDisplay="false" tab="navigation_et_classement" type="java.util.TreeSet" chooser="tree" exclusive="false" root="$jcmsplugin.archives.category.periodique.periode">
+      <label xml:lang="fr">Période</label>
+    </field>
+    <field name="communesConcernees" editor="link" required="false" compactDisplay="false" tab="ressort_geographique" type="generated.City[]">
+      <label xml:lang="fr">Communes concernées</label>
+    </field>
+    <field name="toutesLesCommunesDuDepartement" editor="boolean" required="false" compactDisplay="false" tab="ressort_geographique" type="boolean" default="off" ml="false" descriptionType="text" searchable="false" html="false" checkHtml="true">
+      <label xml:lang="fr">Toutes les communes du Département</label>
+      <description xml:lang="fr">Attention, cocher cette case a pour conséquence de lier cet établissement à toutes les communes du département.</description>
+      <onLabel xml:lang="fr">Oui</onLabel>
+      <offLabel xml:lang="fr">Non</offLabel>
+    </field>
+  </fields>
+  <tabs>
+    <tab id="contenu">
+      <label xml:lang="fr">Contenu</label>
+    </tab>
+    <tab id="navigation_et_classement">
+      <label xml:lang="fr">Navigation et Classement</label>
+    </tab>
+    <tab id="ressort_geographique">
+      <label xml:lang="fr">Ressort géographique</label>
+    </tab>
+  </tabs>
+</type>
+

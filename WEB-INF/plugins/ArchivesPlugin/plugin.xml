@@ -18,6 +18,7 @@
     <type name="ConditionsDeReutilisation"></type>
     <type name="MethodologyCard"></type>
     <type name="Paleography"></type>
+    <type name="Periodique"></type>
     
     <templates type="ArchiveDigitized">
         <template name="default" file="doArchiveDigitizedFullDisplay.jsp" usage='full'>
@@ -36,6 +37,11 @@
     </templates>
     <templates type="Paleography">
         <template name="default" file="doPaleographyFullDisplay.jsp" usage='full'>
+          <label xml:lang="fr">DS44 : gabarit générique simple</label>
+        </template>
+    </templates> 
+    <templates type="Periodique">
+        <template name="default" file="doPeriodiqueFullDisplay.jsp" usage='full'>
           <label xml:lang="fr">DS44 : gabarit générique simple</label>
         </template>
     </templates>            
