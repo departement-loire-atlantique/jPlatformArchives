@@ -30,12 +30,10 @@ String[] nameCategories = SocleUtils.formatCategories(pub.getLevels(loggedMember
                        <img class="ds44-w100" src="<%= pub.getTextRecall() %>" alt='<%= glp("jcmsplugin.socle.paleography.alt.img")%>' />
                    </figure>
                </jalios:if>
-               <div class="ds44-theme ds44-flex-valign-center ds44-flex-container ds44-fse ds44--l-padding ">
-                  <p class="ds44-docListElem"><i class="icon icon-tag ds44-docListIco" aria-hidden="true"></i><%= SocleUtils.formatCategories(pub.getLevels(loggedMember)) %></p>
-               </div>
             </div>
          </div>
       </div>
+      <jalios:if predicate="<%= Util.notEmpty(pub.getTranscription()) %>">
       <section class="ds44-contenuArticle">
          <div class="ds44-inner-container ds44-mtb3">
             <div class="ds44-grid12-offset-2">
@@ -57,4 +55,5 @@ String[] nameCategories = SocleUtils.formatCategories(pub.getLevels(loggedMember
             </div>
          </div>
       </section>
+      </jalios:if>
 </section>
