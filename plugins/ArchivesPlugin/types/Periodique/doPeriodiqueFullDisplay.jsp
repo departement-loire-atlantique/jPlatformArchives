@@ -60,22 +60,16 @@ boolean displayListeCommunes = (Util.notEmpty(obj.getCommunesConcernees()) || ob
                                     <p role="heading" aria-level="3" class="ds44-box-heading"><%= glp("jcmsplugin.archives.periodique.descripteurs") %> :</p>
                                     <p class="mts">
                                         <span class="u-bold"><%= glp("jcmsplugin.archives.periodique.themes") %> : </span>
-                                        <jalios:foreach name="itTheme" type="Category" collection="<%= obj.getTheme(loggedMember) %>">
-                                            <%= itTheme.getName(userLang) %></a><%= itCounter < obj.getTheme(loggedMember).size() ? ", " : ""%>
-                                        </jalios:foreach>
+                                        <%= SocleUtils.formatCategories(obj.getTheme(loggedMember)) %>
                                     </p>
                                     <p class="mts">
                                         <span class="u-bold"><%= glp("jcmsplugin.archives.periodique.periode") %> : </span>
-                                        <jalios:foreach name="itPeriode" type="Category" collection="<%= obj.getPeriode(loggedMember) %>">
-                                            <%= itPeriode.getName(userLang) %></a><%= itCounter < obj.getPeriode(loggedMember).size() ? ", " : ""%>
-                                        </jalios:foreach>
+                                        <%= SocleUtils.formatCategories(obj.getPeriode(loggedMember)) %>
                                     </p>
                                     <jalios:if predicate="<%= Util.notEmpty(obj.getTendencesPolitiques(loggedMember)) %>">
                                     <p class="mts">
                                         <span class="u-bold"><%= glp("jcmsplugin.archives.periodique.tendancepolitique") %> : </span>
-                                        <jalios:foreach name="itPolitique" type="Category" collection="<%= obj.getTendencesPolitiques(loggedMember) %>">
-                                            <%= itPolitique.getName(userLang) %></a><%= itCounter < obj.getTendencesPolitiques(loggedMember).size() ? ", " : ""%>
-                                        </jalios:foreach>
+                                        <%= SocleUtils.formatCategories(obj.getTendencesPolitiques(loggedMember)) %>
                                     </p>
                                     </jalios:if>
                                     <jalios:if predicate="<%= Util.notEmpty(obj.getNotes(userLang)) %>">
