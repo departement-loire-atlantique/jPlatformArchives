@@ -68,3 +68,31 @@ jcmsplugin.socle.socialnetworks.title: Les archives départementales de Loire-At
 
 # Paleographie
 jcmsplugin.socle.paleography.alt.img: Photographie du bail manuscrit. Transcription disponible en dessous.
+
+# ------------------------------------------------------------
+#  Périodique
+# ------------------------------------------------------------
+
+# Paramétrable
+
+jcmsplugin.archives.periodique.urlpressenumerisee: URL du lien vers le site presse numérisée
+
+# Libellés
+
+jcmsplugin.archives.periodique.presentation: Présentation
+jcmsplugin.archives.periodique.coteperiodique: Cote de périodique
+jcmsplugin.archives.periodique.datesextremescollection: Dates extrêmes de la collection
+jcmsplugin.archives.periodique.datescollectionnumerisee: Dates de la collection numérisée
+jcmsplugin.archives.periodique.ancientitre: Ancien titre
+jcmsplugin.archives.periodique.titredevenu: Titre devenu
+jcmsplugin.archives.periodique.descripteurs: Descripteurs
+jcmsplugin.archives.periodique.themes: Thèmes
+jcmsplugin.archives.periodique.periode: Période
+jcmsplugin.archives.periodique.tendancepolitique: Tendance politique
+jcmsplugin.archives.periodique.notes: Notes
+jcmsplugin.archives.periodique.consulterinventaire: Consultez l'inventaire de la collection ({0} - {1})
+jcmsplugin.archives.periodique.consulterdocnumerise: Consultez le doc numérisé
+jcmsplugin.archives.periodique.ressort: Ressort géographique
+jcmsplugin.archives.periodique.siege: Siège
+jcmsplugin.archives.periodique.communesconcernees: Communes concernées
+jcmsplugin.archives.periodique.toutela: Toute la Loire-Atlantique
