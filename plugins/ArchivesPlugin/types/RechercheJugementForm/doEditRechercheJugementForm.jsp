@@ -19,7 +19,7 @@ String formAction = "plugins/SoclePlugin/jsp/forms/checkArchivesRechercheJugemen
         <p class="ds44-textLegend ds44-textLegend--mentions"><%= glp("jcmsplugin.socle.facette.champs-obligatoires") %></p>
         <form data-is-ajax='true' data-is-inline="true" data-empty-after-submit="true" action='<%= formAction %>' method="post">
             <fieldset class="ds44-mb3">
-                <h2 class="h3-like"><%= glp("jcmsplugin.archives.form.vous-etes") %></h2>
+                <legend><h2 class="h3-like"><%= glp("jcmsplugin.archives.form.vous-etes") %></h2></legend>
                 <ul class="ds44-list grid-12">
                 
                     <%-- Nom ------------------------------------------------------------ --%>
@@ -131,7 +131,7 @@ String formAction = "plugins/SoclePlugin/jsp/forms/checkArchivesRechercheJugemen
             
          
             <fieldset class="ds44-mb3">
-                <h2 class="h3-like"><%= glp("jcmsplugin.archives.form.caracteristiquesJugement") %></h2>
+                <legend><h2 class="h3-like"><%= glp("jcmsplugin.archives.form.caracteristiquesJugement") %></h2></legend>
                     <ul class="ds44-list grid-12">
                 
                     <%-- AnneeJugement ------------------------------------------------------------ --%>
@@ -193,7 +193,7 @@ String formAction = "plugins/SoclePlugin/jsp/forms/checkArchivesRechercheJugemen
             </fieldset>
 
             <fieldset class="ds44-mb3">
-                <h2 class="h3-like"><%= glp("jcmsplugin.archives.form.concernesJugement") %></h2>
+                <legend><h2 class="h3-like"><%= glp("jcmsplugin.archives.form.concernesJugement") %></h2></legend>
                     <ul class="ds44-list grid-12">
                     
                         <%-- NomPersonne1 ------------------------------------------------------------ --%>
@@ -243,7 +243,7 @@ String formAction = "plugins/SoclePlugin/jsp/forms/checkArchivesRechercheJugemen
             </fieldset>
             
             <fieldset class="ds44-mb3">
-                <h2 class="h3-like"><%= glp("jcmsplugin.archives.form.motifJugement") %></h2>
+                <legend><h2 class="h3-like"><%= glp("jcmsplugin.archives.form.motifJugement") %></h2></legend>
                     <ul class="ds44-list grid-12">
                         <li class="col-6 ds44-minTiny-margin-r">                    
                         
@@ -291,7 +291,7 @@ String formAction = "plugins/SoclePlugin/jsp/forms/checkArchivesRechercheJugemen
             </fieldset>
             
             <fieldset class="ds44-mb3">
-                <h2 class="h3-like"><%= glp("jcmsplugin.archives.form.motivationDemandeJugement") %></h2>
+                <legend><h2 class="h3-like"><%= glp("jcmsplugin.archives.form.motivationDemandeJugement") %></h2></legend>
                     <ul class="ds44-list grid-12">
                     
 	                    <%-- Motivations ------------------------------------------------------------ --%>
