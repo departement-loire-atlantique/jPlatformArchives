@@ -89,6 +89,7 @@ jcmsplugin.archives.periodique.descripteurs: Descripteurs
 jcmsplugin.archives.periodique.themes: Thèmes
 jcmsplugin.archives.periodique.periode: Période
 jcmsplugin.archives.periodique.tendancepolitique: Tendance politique
+jcmsplugin.archives.periodique.tendancepolitique: Fréquence de parution
 jcmsplugin.archives.periodique.notes: Notes
 jcmsplugin.archives.periodique.consulterinventaire: Consultez l'inventaire de la collection ({0} - {1})
 jcmsplugin.archives.periodique.consulterdocnumerise: Consultez le doc numérisé

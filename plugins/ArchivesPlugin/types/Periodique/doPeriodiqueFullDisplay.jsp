@@ -72,6 +72,12 @@ boolean displayListeCommunes = (Util.notEmpty(obj.getCommunesConcernees()) || ob
                                         <%= SocleUtils.formatCategories(obj.getTendencesPolitiques(loggedMember)) %>
                                     </p>
                                     </jalios:if>
+                                    <jalios:if predicate="<%= Util.notEmpty(obj.getFrequenceParution(loggedMember)) %>">
+                                    <p class="mts">
+                                        <span class="u-bold"><%= glp("jcmsplugin.archives.periodique.frequenceparution") %> : </span>
+                                        <%= SocleUtils.formatCategories(obj.getFrequenceParution(loggedMember)) %>
+                                    </p>
+                                    </jalios:if>
                                     <jalios:if predicate="<%= Util.notEmpty(obj.getNotes(userLang)) %>">
                                     <p role="heading" aria-level="3" class="ds44-box-heading mtl"><%= glp("jcmsplugin.archives.periodique.notes") %></p>
                                     <p class="mts">
@@ -104,33 +110,35 @@ boolean displayListeCommunes = (Util.notEmpty(obj.getCommunesConcernees()) || ob
             </div>
         </div>
 	</section>
-	
+		
 	<jalios:if predicate="<%= Util.notEmpty(obj.getSiegeDuJournal()) || displayListeCommunes %>">
-	<section class="ds44-contenuArticle ds44-mt2">
+	<section class="ds44-contenuArticle">
 	   <%-- Bloc ressort géographique --%>
-	   <div class="ds44-inner-container">
-	       <h2 class="h3-like"><%= glp("jcmsplugin.archives.periodique.ressort") %></h2>
-	       <jalios:if predicate="<%= Util.notEmpty(obj.getSiegeDuJournal()) %>">
-	           <p class="mts">
-	               <span class="u-bold"><%= glp("jcmsplugin.archives.periodique.siege") %> : </span><%= obj.getSiegeDuJournal().getTitle(userLang) %>
-	           </p>
-	       </jalios:if>
-	       <jalios:if predicate="<%= displayListeCommunes %>">
-	           <p class="mts">
-                   <span class="u-bold"><%= glp("jcmsplugin.archives.periodique.communesconcernees") %> : </span>
-                   <jalios:select>
-                       <jalios:if predicate="<%= obj.getNumerise() %>">
-                           <%= glp("jcmsplugin.archives.periodique.toutela") %>
-                       </jalios:if>
-                       <jalios:default>
-                           <%-- Si ça n'est pas numérisé, mais que le bloc est affiché, alors il y a forcément des communes de renseignées --%>
-                           <jalios:foreach name="itCommune" type="City" array="<%= obj.getCommunesConcernees() %>">
-                               <%= itCommune.getTitle(userLang) %><%= itCounter < obj.getCommunesConcernees().length ? ", " : ""%>
-                           </jalios:foreach>
-                       </jalios:default>
-                   </jalios:select>
-               </p>
-	       </jalios:if>       
+	   <div class="ds44-inner-container ds44-mtb3">
+	       <div class="ds44-grid12-offset-1">
+		       <h2 class="h3-like"><%= glp("jcmsplugin.archives.periodique.ressort") %></h2>
+		       <jalios:if predicate="<%= Util.notEmpty(obj.getSiegeDuJournal()) %>">
+		           <p class="mts">
+		               <span class="u-bold"><%= glp("jcmsplugin.archives.periodique.siege") %> : </span><%= obj.getSiegeDuJournal().getTitle(userLang) %>
+		           </p>
+		       </jalios:if>
+		       <jalios:if predicate="<%= displayListeCommunes %>">
+		           <p class="mts">
+	                   <span class="u-bold"><%= glp("jcmsplugin.archives.periodique.communesconcernees") %> : </span>
+	                   <jalios:select>
+	                       <jalios:if predicate="<%= obj.getToutesLesCommunesDuDepartement() %>">
+	                           <%= glp("jcmsplugin.archives.periodique.toutela") %>
+	                       </jalios:if>
+	                       <jalios:default>
+	                           <%-- Si ça n'est pas numérisé, mais que le bloc est affiché, alors il y a forcément des communes de renseignées --%>
+	                           <jalios:foreach name="itCommune" type="City" array="<%= obj.getCommunesConcernees() %>">
+	                               <%= itCommune.getTitle(userLang) %><%= itCounter < obj.getCommunesConcernees().length ? ", " : ""%>
+	                           </jalios:foreach>
+	                       </jalios:default>
+	                   </jalios:select>
+	               </p>
+		       </jalios:if>       
+	       </div>
 	   </div>
 	</section>
 	</jalios:if>
