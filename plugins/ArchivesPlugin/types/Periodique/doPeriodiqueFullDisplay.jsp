@@ -43,7 +43,7 @@ boolean displayListeCommunes = (Util.notEmpty(obj.getCommunesConcernees()) || ob
                                     <p class="mts">
                                         <span class="u-bold"><%= glp("jcmsplugin.archives.periodique.ancientitre") %> : </span>
                                         <jalios:foreach name="itAncienTitre" type="Periodique" array="<%= obj.getAncienTitre() %>">
-	                                        <a href="<%= itAncienTitre.getDisplayUrl(userLocale) %>" target="_blank" title='<%= glp("jcmsplugin.socle.fichepublication.lire.title", obj.getTitle()) %>'><%= itAncienTitre.getTitle() %></a><%= itCounter < itAncienTitre.getAncienTitre().length ? ", " : ""%>
+	                                        <a href="<%= itAncienTitre.getDisplayUrl(userLocale) %>" target="_blank" title='<%= glp("jcmsplugin.socle.fichepublication.lire.title", obj.getTitle()) %>'><%= itAncienTitre.getTitle() %></a><%= itCounter < obj.getAncienTitre().length ? ", " : ""%>
                                         </jalios:foreach>
                                     </p>
                                     </jalios:if>
@@ -51,7 +51,7 @@ boolean displayListeCommunes = (Util.notEmpty(obj.getCommunesConcernees()) || ob
                                     <p class="mts">
                                         <span class="u-bold"><%= glp("jcmsplugin.archives.periodique.titredevenu") %> : </span>
                                         <jalios:foreach name="itTitreDevenu" type="Periodique" array="<%= obj.getTitreDevenu() %>">
-                                            <a href="<%= itTitreDevenu.getDisplayUrl(userLocale) %>" target="_blank" title='<%= glp("jcmsplugin.socle.fichepublication.lire.title", obj.getTitle()) %>'><%= itTitreDevenu.getTitle() %></a><%= itCounter < itTitreDevenu.getTitreDevenu().length ? ", " : ""%>
+                                            <a href="<%= itTitreDevenu.getDisplayUrl(userLocale) %>" target="_blank" title='<%= glp("jcmsplugin.socle.fichepublication.lire.title", obj.getTitle()) %>'><%= itTitreDevenu.getTitle() %></a><%= itCounter < obj.getTitreDevenu().length ? ", " : ""%>
                                         </jalios:foreach>
                                     </p>
                                     </jalios:if>
