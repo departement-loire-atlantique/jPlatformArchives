@@ -83,6 +83,7 @@ jcmsplugin.archives.periodique.presentation: Présentation
 jcmsplugin.archives.periodique.coteperiodique: Cote de périodique
 jcmsplugin.archives.periodique.datesextremescollection: Dates extrêmes de la collection
 jcmsplugin.archives.periodique.datescollectionnumerisee: Dates de la collection numérisée
+jcmsplugin.archives.periodique.frequenceparution: Fréquence de parution
 jcmsplugin.archives.periodique.ancientitre: Ancien titre
 jcmsplugin.archives.periodique.titredevenu: Titre devenu
 jcmsplugin.archives.periodique.descripteurs: Descripteurs
