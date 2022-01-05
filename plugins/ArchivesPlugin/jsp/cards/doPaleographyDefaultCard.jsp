@@ -18,10 +18,6 @@ String[] nameCategories = SocleUtils.formatCategories(pub.getLevels(loggedMember
 
 <section class=ds44-box">
     
-    <p role="heading" aria-level="2" class="h4-like ds44-cardTitle" id="tuileActionEdu_<%= uid %>">
-        <a title='<%= glp("jcmsplugin.socle.lien.nouvelonglet", pub.getTitle(userLang)) %>' target="_blank" href="<%= pub.getDisplayUrl(userLocale) %>" class="ds44-card__globalLink"><%= pub.getTitle() %></a>
-    </p>
-    
     <div class="ds44-img50--event">
          <div class="ds44-inner-container">
             <div class="ds44-grid12-offset-1">
