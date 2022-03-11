@@ -6,12 +6,18 @@ env:
 services:
 - docker
 
+addons:
+  sonarcloud:
+    organization: departement-loire-atlantiqu-1
+    token:
+      secure: jh8hhw8nYWGmUnSrLCKX/UG6rqPCAPagUF4N3p9InOtjz2TcDk6d2FAAp/I7qXg3QeY5F2Nlul4SSWuzeapZ8OGA0U4Tc+uMZUihM4RJGv/7COsWFconAztFxdn6/MVg8kXQSi1CHUGwOC2+nSSp5AIAwRrpEw498DkD1e+A2+nlge7jFCCWQeKCD+9s09psX5fLDeu1jKX+JpX/kBD4F2ayYeLdj8siugHUdWeQWJgBRC44ah94+IRJ8Bw8yYHXqwVg03fjwHXGqJ+5iYNJboBJXQET5tZTPV9Jyu+jh035ZX4ZdP1WCLHWrL0PyR1R5yIztQzvDNCFx7wpfDXDzfqJUxJzcSytQV864qwMVq1qfyDNGmVrVh12aq8l65jrS/R3BhroFEdHlrmYk0ruvd6bnbC0HMT+YEvmDXTPEwmV+ca2unLlaR4oBqzy/em/Ww8wkRM2TE9sbjddNBZBX4faq/3tz6ycXMsirMnobxsPLFcF3jWNqSNVikKnxejmiZAM4zLEu6XV/2J7Nm87zfnTiQ+9Y/9BOaxeoU9cVdGKYmq9P5TPMChwm5/ZMQTULfR5lKs+amql+JmDB8h2VooRlx1KKq8A92ZpPV5Va9+mI8fpM0X6ToPBF2wcfATzZzxTlQXsALbe25oSSjY+R7+I3eSbC6Dc3ET+0/9/4QA=
+
 before_script:
 - echo "$DOCKER_PASS" | docker login --username $DOCKER_USER --password-stdin
-- docker pull julienbayle/jplatformbuild
+- docker pull sguellec/jplatformbuild
 
 script:
-- docker run -v ${TRAVIS_BUILD_DIR}:/root/source --name buildimage -t julienbayle/jplatformbuild
+- docker run -v ${TRAVIS_BUILD_DIR}:/root/source --name buildimage -t sguellec/jplatformbuild
 - docker cp buildimage:/root/dist ${TRAVIS_BUILD_DIR}/
 - export FILE_NAME=`ls ${TRAVIS_BUILD_DIR}/dist/*.zip`
 
