@@ -9,6 +9,7 @@ import java.util.Map;
 import java.util.TreeMap;
 
 import org.apache.commons.fileupload.FileItem;
+import org.apache.commons.lang.math.NumberUtils;
 import org.apache.log4j.Logger;
 
 import com.csvreader.CsvReader;
@@ -112,7 +113,7 @@ public class ImportPeriodiqueFromCsv {
                     if (Util.notEmpty(values[10]) ? !categoryCheck(values[10], channel.getCategory("$jcmsplugin.archives.category.periodique.periode")) : false) { // Période
                         lineLog.append("Le champ Période présente une ou des catégories incorrectes (mauvaise branche ou IDs n'existant pas) # ");
                     }
-                    if (Util.notEmpty(values[11]) ? !contentCheck(values[11], City.class) : false) { // Communes concernées
+                    if (Util.notEmpty(values[11]) ? !communeCheck(values[11]) : false) { // Communes concernées
                         lineLog.append("Le champ Communes concernées présente des contenus incorrects (un ou plusieurs contenus n'existent pas / ne sont pas des Communes) # ");
                     }
                     
@@ -134,10 +135,12 @@ public class ImportPeriodiqueFromCsv {
                 return null;
             }
             
+            channel.getCurrentJcmsContext().addMsgSession(new JcmsMessage(JcmsMessage.Level.SUCCESS, "Le fichier CSV est correct !"));
+            
             return returnedLog;
         }
         
-        channel.getCurrentJcmsContext().addMsgSession(new JcmsMessage(JcmsMessage.Level.SUCCESS, "Le fichier CSV est correct !"));
+        channel.getCurrentJcmsContext().addMsgSession(new JcmsMessage(JcmsMessage.Level.ERROR, "Erreur lors de la lecture du CSV : format incorrect."));
         
         return null;
     }
@@ -156,6 +159,28 @@ public class ImportPeriodiqueFromCsv {
         for (int counter = 0; counter < ids.length; counter++) {
             Publication itPub = channel.getPublication(ids[counter]);
             if (Util.isEmpty(itPub) || !itClass.isInstance(itPub)) return false;
+        }
+        return true;
+    }
+    
+    /**
+     * Vérifie si une liste d'IDs de contenu ou de noms de communes correspond bien
+     * à des communes
+     * @param idsStr
+     * @return
+     */
+    private static boolean communeCheck(String idsStr) {
+        if (Util.isEmpty(idsStr)) return false;
+        
+        String[] ids = idsStr.split(doubleHashtag);
+        for (int counter = 0; counter < ids.length; counter++) {
+            Publication itPub = null;
+            if (NumberUtils.isNumber(ids[counter])) {
+                itPub = channel.getPublication(ids[counter]);itPub = channel.getPublication(ids[counter]);
+            } else {
+                itPub = SocleUtils.getCommuneFromName(ids[counter]);
+            }
+            if (Util.isEmpty(itPub) || !City.class.isInstance(itPub)) return false;
         }
         return true;
     }
@@ -206,8 +231,6 @@ public class ImportPeriodiqueFromCsv {
                 channel.getCurrentJcmsContext().addMsgSession(new JcmsMessage(JcmsMessage.Level.INFO, message));
             }
             
-            channel.getCurrentJcmsContext().getRequest().setAttribute("traceImport", trace);
-            
         } catch (FileNotFoundException e) {
             result = true;
             message = "Impossible de trouver le fichier";
@@ -218,6 +241,7 @@ public class ImportPeriodiqueFromCsv {
             channel.getCurrentJcmsContext().addMsgSession(new JcmsMessage(JcmsMessage.Level.ERROR, message));
             channel.getCurrentJcmsContext().getRequest().setAttribute("traceImport", e);
         } 
+        channel.getCurrentJcmsContext().getRequest().setAttribute("traceImport", trace);
         return result;
     }
     
@@ -269,7 +293,11 @@ public class ImportPeriodiqueFromCsv {
         if (Util.notEmpty(values[11])) {
             List<City> communes = new ArrayList<>();
             for (String itId : values[11].split(doubleHashtag)) {
-                communes.add(channel.getData(City.class, itId));
+                if (NumberUtils.isNumber(itId)) {
+                    communes.add(channel.getData(City.class, itId));
+                } else {
+                    communes.add(SocleUtils.getCommuneFromName(itId));
+                }
             }
             itPeriodique.setCommunesConcernees(communes.toArray(new City[communes.size()]));
         }
