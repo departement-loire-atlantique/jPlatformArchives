@@ -81,8 +81,8 @@ public class ImportPeriodiqueFromCsv {
                      */
                     lineLog = new StringBuilder();
                     values = csvReader.getValues();
-                    if (values.length != 20) {
-                        channel.getCurrentJcmsContext().addMsgSession(new JcmsMessage(JcmsMessage.Level.ERROR, "Le fichier CSV doit avoir 20 colonnes, et il n'en a que " + values.length));
+                    if (values.length != 13) {
+                        channel.getCurrentJcmsContext().addMsgSession(new JcmsMessage(JcmsMessage.Level.ERROR, "Le fichier CSV doit avoir 13 colonnes, et il n'en a que " + values.length));
                         break;
                     }
                     if (!skippedFirst) { // ne pas lire la ligne des headers
@@ -214,8 +214,8 @@ public class ImportPeriodiqueFromCsv {
             // On vérifie le nombre de colonnes
             while (csvReader.readRecord()){
                 values = csvReader.getValues();
-                if(values.length != 20){
-                    trace += "Le fichier contient une ligne incorrecte [ligne " + cpt + "], nombre de colonnes différent de 26 \r\n" + csvReader.getRawRecord() + "\r\n";
+                if(values.length != 13){
+                    trace += "Le fichier contient une ligne incorrecte [ligne " + cpt + "], nombre de colonnes différent de 13 \r\n" + csvReader.getRawRecord() + "\r\n";
                     result = true;
                 }
                 cpt++;
