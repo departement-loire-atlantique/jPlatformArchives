@@ -15,6 +15,7 @@ media.data-template.card.Paleography: /plugins/ArchivesPlugin/jsp/cards/doPaleog
 media.data-template.default.Paleography: /plugins/ArchivesPlugin/jsp/cards/doPaleographyDefaultCard.jsp
 media.data-template.card.MethodologyCard: /plugins/ArchivesPlugin/jsp/cards/doMethodologyCardCard.jsp
 media.data-template.search.Periodique: /plugins/ArchivesPlugin/jsp/cards/doPeriodiqueResultCard.jsp
+media.data-template.card.Periodique: /plugins/ArchivesPlugin/jsp/cards/doPeriodiqueResultCard.jsp
 
 # Import organisme avec contact
 $jcmsplugin.archives.import.organisme.classement.root: c_21132
