@@ -93,9 +93,6 @@ public class ImportPeriodiqueFromCsv {
                     if (Util.isEmpty(values[0])) { // titre
                         lineLog.append("Le titre (champ obligatoire) est vide. # ");
                     }
-                    else {
-                      LOGGER.warn("Import périodique - Traitement de la ligne " + cpt + " : " + values[0]);
-                    }
                     if (Util.isEmpty(values[1])) { // cote de périodique
                         lineLog.append("La cote de périodique (champ obligatoire) est vide. # ");
                     }
