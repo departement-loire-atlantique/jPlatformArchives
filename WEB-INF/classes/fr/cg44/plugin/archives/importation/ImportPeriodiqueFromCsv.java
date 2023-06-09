@@ -32,6 +32,7 @@ public class ImportPeriodiqueFromCsv {
     private static final Logger LOGGER = Logger.getLogger(ImportPeriodiqueFromCsv.class);
     private static String encoding = "UTF-8";
     protected static final Channel channel = Channel.getChannel();
+    private static StringBuffer communesErreursBuffer = new StringBuffer();
     
     /*
      * Liste des valeurs attendues dans le CSV
@@ -92,16 +93,19 @@ public class ImportPeriodiqueFromCsv {
                     if (Util.isEmpty(values[0])) { // titre
                         lineLog.append("Le titre (champ obligatoire) est vide. # ");
                     }
+                    else {
+                      LOGGER.warn("Import périodique - Traitement de la ligne " + cpt + " : " + values[0]);
+                    }
                     if (Util.isEmpty(values[1])) { // cote de périodique
                         lineLog.append("La cote de périodique (champ obligatoire) est vide. # ");
                     }
                     if (Util.isEmpty(values[2])) { // dates extrêmes de la collection
                         lineLog.append("Les dates extrêmes de la collection (champ obligatoire) sont vides. # ");
                     }
-                    if (Util.notEmpty(values[4]) ? !categoryCheck(values[6], channel.getCategory("$jcmsplugin.archives.category.periodique.frequenceparution")) : false) { // Fréquence parution
+                    if (Util.notEmpty(values[4]) ? !categoryCheck(values[4], channel.getCategory("$jcmsplugin.archives.category.periodique.frequenceparution")) : false) { // Fréquence parution
                         lineLog.append("Le champ Fréquence parution présente une catégorie incorrecte (mauvaise branche ou ID n'existant pas) # ");
                     }
-                    if (Util.notEmpty(values[6]) ? !contentCheck(values[6],City.class) : false) { // Siège du journal
+                    if (Util.notEmpty(values[6]) ? !communeCheck(values[6]) : false) { // Siège du journal
                         lineLog.append("Le champ Siège du journal présente un contenu incorrect (il n'existe pas ou ne pointe pas sur une commune) # ");
                     }
                     if (Util.notEmpty(values[8]) ? !categoryCheck(values[8], channel.getCategory("$jcmsplugin.archives.category.periodique.theme")) : false) { // Thème
@@ -115,6 +119,7 @@ public class ImportPeriodiqueFromCsv {
                     }
                     if (Util.notEmpty(values[11]) ? !communeCheck(values[11]) : false) { // Communes concernées
                         lineLog.append("Le champ Communes concernées présente des contenus incorrects (un ou plusieurs contenus n'existent pas / ne sont pas des Communes) # ");
+                        lineLog.append(communesErreursBuffer.toString());
                     }
                     
                     Periodique itPeriodique = generatePeriodiqueFromCsvValues(values);
@@ -125,6 +130,7 @@ public class ImportPeriodiqueFromCsv {
                     }
                     
                     if (Util.notEmpty(lineLog.toString())) {
+                        lineLog.append(" <strong>").append(values[0]).append("</strong>");
                         returnedLog.put("Ligne " + (cpt), lineLog.toString());
                     }
                     
@@ -170,19 +176,33 @@ public class ImportPeriodiqueFromCsv {
      * @return
      */
     private static boolean communeCheck(String idsStr) {
+        communesErreursBuffer = new StringBuffer();
+        boolean hasError = false;
         if (Util.isEmpty(idsStr)) return false;
         
         String[] ids = idsStr.split(doubleHashtag);
         for (int counter = 0; counter < ids.length; counter++) {
             Publication itPub = null;
             if (NumberUtils.isNumber(ids[counter])) {
-                itPub = channel.getPublication(ids[counter]);itPub = channel.getPublication(ids[counter]);
+                //itPub = channel.getPublication(ids[counter]);
+                itPub = SocleUtils.getCommuneFromCode(ids[counter]);
             } else {
                 itPub = SocleUtils.getCommuneFromName(ids[counter]);
             }
-            if (Util.isEmpty(itPub) || !City.class.isInstance(itPub)) return false;
+            if (Util.isEmpty(itPub) || !City.class.isInstance(itPub)) {
+              hasError = true;
+              communesErreursBuffer.append(ids[counter]).append("|");
+              //LOGGER.warn("Import périodique - Erreur dans la liste des communes. Commune inconnue :  " + ids[counter]);
+              //return false;
+            }
+            
         }
-        return true;
+        
+        if(hasError) {
+          return false;
+        } else {
+          return true;
+        }
     }
 
     /**
@@ -261,7 +281,7 @@ public class ImportPeriodiqueFromCsv {
         itPeriodique.setDatesExtremesDeLaCollection(values[2]);
         // Dates extrêmes de la collection numérisée
         if (Util.notEmpty(values[3])) {
-            itPeriodique.setTexteAlternatif(values[3]);
+            itPeriodique.setDatesExtremesDeLaCollectionNumer(values[3]);
         }
         // Fréquence parution
         itPeriodique.addCategory(channel.getCategory(values[4]));
@@ -271,10 +291,16 @@ public class ImportPeriodiqueFromCsv {
         }
         // Siège
         if (Util.notEmpty(values[6])) {
-            itPeriodique.setSiegeDuJournal(channel.getData(City.class, values[6]));
+          City tmpCity = null;
+          if (NumberUtils.isNumber(values[6])) {
+            tmpCity = SocleUtils.getCommuneFromCode(values[6]);
+          } else {
+            tmpCity = SocleUtils.getCommuneFromName(values[6]);
+          }
+            itPeriodique.setSiegeDuJournal(tmpCity);
         }
         // Numérisé
-        itPeriodique.setNumerise("oui".equalsIgnoreCase(values[7]));
+        itPeriodique.setNumerise("O".equalsIgnoreCase(values[7]));
         // Thème
         for (String itCid : values[8].split(doubleHashtag)) {
             itPeriodique.addCategory(channel.getCategory(itCid));
@@ -294,7 +320,7 @@ public class ImportPeriodiqueFromCsv {
             List<City> communes = new ArrayList<>();
             for (String itId : values[11].split(doubleHashtag)) {
                 if (NumberUtils.isNumber(itId)) {
-                    communes.add(channel.getData(City.class, itId));
+                    communes.add(SocleUtils.getCommuneFromCode(itId));
                 } else {
                     communes.add(SocleUtils.getCommuneFromName(itId));
                 }
@@ -302,7 +328,7 @@ public class ImportPeriodiqueFromCsv {
             itPeriodique.setCommunesConcernees(communes.toArray(new City[communes.size()]));
         }
         // Toutes les communes
-        itPeriodique.setToutesLesCommunesDuDepartement("oui".equalsIgnoreCase(values[12]));
+        itPeriodique.setToutesLesCommunesDuDepartement("X".equalsIgnoreCase(values[12]));
         
         itPeriodique.setAuthor(channel.getCurrentLoggedMember());
         
