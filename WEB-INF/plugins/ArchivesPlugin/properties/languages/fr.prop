@@ -41,6 +41,7 @@ jcmsplugin.archives.form.motivations: Mention texte libre
 jcmsplugin.archives.form.motifDivorce: Divorce
 jcmsplugin.archives.form.motifAdoption: Adoption
 jcmsplugin.archives.form.motifAutre: Autre
+jcmsplugin.archives.form.piece-jointe: Pièce jointe 
 
 jcmsplugin.archives.form.votre-demande : Votre demande
 
@@ -49,6 +50,7 @@ jcmsplugin.archives.form.ctrl.datesJugement: Merci de renseigner une date (anné
 
 jcmsplugin.archives.form.exemple.anneeJugement: Exemple : 1939
 jcmsplugin.archives.form.exemple.dateJugement: Exemple : 25/03/1939
+jcmsplugin.archives.form.autreRecherche.exemple.formats: Formats : PDF ou image, taille max. : 6Mo
 
 # ------------------------------------------------------------
 #  Email

@@ -1,23 +1,13 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%@ include file='/jcore/doInitPage.jspf' %>
-
-<%
-String formAction = "plugins/SoclePlugin/jsp/forms/checkArchivesAutreRecherche.jsp";
+<% 
+  EditAutreRechercheFormHandler formHandler = (EditAutreRechercheFormHandler)request.getAttribute("formHandler");
+  ServletUtil.backupAttribute(pageContext, "classBeingProcessed");
+  request.setAttribute("classBeingProcessed", generated.AutreRechercheForm.class);
 %>
 
-<div class="ds44-loader-text visually-hidden" tabindex="-1" aria-live="polite"></div>
-<div class="ds44-loader hidden">
-    <div class="ds44-loader-body">
-        <svg class="ds44-loader-circular" focusable="false" aria-hidden="true">
-            <circle class="ds44-loader-path" cx="30" cy="30" r="20" fill="none" stroke-width="5" stroke-miterlimit="10"></circle>
-        </svg>
-    </div>
-</div>
 
-<article class="ds44-container-large ds44-mtb5">
-    <div class="ds44-inner-container ds44-grid12-offset-1">
-        <p class="ds44-textLegend ds44-textLegend--mentions"><%= glp("jcmsplugin.socle.facette.champs-obligatoires") %></p>
-        <form data-is-ajax='true' data-is-inline="true" data-empty-after-submit="true" action='<%= formAction %>' method="post">
+        
             <div class="ds44-mb3">
                 <h2 class="h3-like"><%= glp("jcmsplugin.archives.form.vous-etes") %></h2>
                 <ul class="ds44-list grid-12">
@@ -143,6 +133,39 @@ String formAction = "plugins/SoclePlugin/jsp/forms/checkArchivesAutreRecherche.j
                                 </div>
                             </div>
                         </li>
+                        
+                        <%-- Justificatif ------------------------------------------------------------ --%>
+						<% String justificatifLabel = glp("jcmsplugin.archives.form.piece-jointe");%>
+						<li class="col-12">
+							<div class="ds44-mb3">
+							    <div class="ds44-form__container">
+							        <div class="ds44-posRel">
+							            <label id="label-form-element-justificatif" for="form-element-justificatif" class="ds44-formLabel">
+							                <span class="ds44-labelTypePlaceholder"><span><%= justificatifLabel %></span></span>
+							            </label>
+							            
+							            <div class="ds44-file__shape ds44-inpStd">
+							                <input type="file" id="form-element-justificatif" name="justificatif" title="<%= glp("jcmsplugin.socle.facette.champ-obligatoire.title", justificatifLabel) %>" data-file-extensions="doc,docx,png,gif,jpg,jpeg,pdf" aria-describedby="explanation-form-element-justificatif"  />
+							                <div id="file-display-form-element-justificatif" class="ds44-fileDisplay"></div>
+							            </div>
+							            <button class="ds44-reset" type="button" aria-describedby="label-form-element-justificatif">
+							              <i class="icon icon-cross icon--sizeL" aria-hidden="true"></i><span class="visually-hidden"><%= glp("jcmsplugin.socle.facette.effacer-contenu-champ", justificatifLabel) %></span>
+							            </button>
+							        
+							            <span class="ds44-file" aria-hidden="true"><i class="icon icon-directory icon--medium" aria-hidden="true"></i></span>
+							        
+							        </div>
+							    
+							        <div class="ds44-field-information" aria-live="polite">
+							            <ul class="ds44-field-information-list ds44-list">
+							                <li id="explanation-form-element-justificatif" class="ds44-field-information-explanation"><%= glp("jcmsplugin.archives.form.autreRecherche.exemple.formats") %></li>
+							            </ul>
+							        </div>
+							    
+							    </div>
+							</div>
+                        </li>
+                        
                     </ul>
             </div>            
 
@@ -152,10 +175,9 @@ String formAction = "plugins/SoclePlugin/jsp/forms/checkArchivesAutreRecherche.j
                     <i class="icon icon-long-arrow-right" aria-hidden="true"></i>
                 </button>
             </div>
-        </form>
 
-    </div>
-</article>
+
+
 
  
 
