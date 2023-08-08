@@ -50,6 +50,10 @@
   <java-classes>
     <java package="fr.cg44.plugin.archives"/>   
   </java-classes>
+  
+  <plugincomponents>
+    <datacontroller  class="fr.cg44.plugin.archives.datacontroller.AutreRechercheFormDataController" types="AutreRechercheForm" />
+  </plugincomponents>  
     
   <private-files>
     <file path="properties/plugin.prop" />

@@ -36,7 +36,10 @@
     </field>
     <field name="demande" editor="textarea" required="false" compactDisplay="false" type="String" searchable="false" rows="5" cols="80" ml="false" wiki="false" wikiwyg="false" html="false" checkHtml="false">
       <label xml:lang="fr">Demande</label>
-    </field> 
+    </field>
+    <field name="justificatif" editor="textfield" required="false" compactDisplay="false" type="String" searchable="false" size="80" ml="false" html="false" checkHtml="false">
+      <label xml:lang="fr">Justificatif</label>
+    </field>    
  </fields>
 </type>
 

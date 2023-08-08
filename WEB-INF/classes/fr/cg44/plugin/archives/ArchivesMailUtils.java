@@ -1,5 +1,6 @@
 package fr.cg44.plugin.archives;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
@@ -15,6 +16,8 @@ import fr.cg44.plugin.socle.SocleUtils;
 import generated.AutreRechercheForm;
 import generated.CommunicationForm;
 import generated.RechercheJugementForm;
+
+import fr.cg44.plugin.socle.MailUtils;
 
 public final class ArchivesMailUtils {
   private static Channel channel = Channel.getChannel();
@@ -148,7 +151,7 @@ public final class ArchivesMailUtils {
   /**
    * Envoi de l'email du formulaire autre recherche (site Archives)
    */
-  public static boolean envoiMailAutreRechercheArchives(AutreRechercheForm form) {
+  public static boolean envoiMailAutreRechercheArchives(AutreRechercheForm form, ArrayList<File> fichiers) {
     
     boolean result = false;
     String jsp = "/plugins/SoclePlugin/jsp/mail/formulaireArchivesAutreRechercheTemplate.jsp";
@@ -182,11 +185,18 @@ public final class ArchivesMailUtils {
 
     if (Util.notEmpty(emailFrom) && Util.notEmpty(emailTo)) {
       try {
-        MailUtils.sendMail(objet, null, emailFrom, emailTo, listeEmailCC, null, jsp, parametersMap);
+        MailUtils.sendMail(objet, null, emailFrom, emailTo, listeEmailCC, fichiers, jsp, parametersMap);
         result = true;
       } catch (Exception e) {
         result = false;
         LOGGER.error("AutreRechercheForm - Erreur lors de l'envoi du mail : " + e.getMessage());
+      }
+      finally {
+        if(result) {
+          MailUtils.msgEnvoiMailContact();          
+        }else {
+          MailUtils.msgEchecEnvoiMailContact();
+        }
       }
 
     } else {
