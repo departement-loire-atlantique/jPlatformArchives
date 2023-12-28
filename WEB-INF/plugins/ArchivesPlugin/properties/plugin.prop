@@ -33,7 +33,7 @@ $jcmsplugin.archives.category.periodique.periode: c_32038
 
 # Formulaires
 jcmsplugin.archives.form.mailTo: archives@loire-atlantique.fr
-jcmsplugin.archives.form.from: archives@loire-atlantique.fr
+jcmsplugin.archives.form.from: no-reply@loire-atlantique.fr
 jcmsplugin.socle.form.contact.mailTo: archives@loire-atlantique.fr
 $jcmsplugin.socle.form.contactform.sujet.root: c_25802
 jcmsplugin.socle.form.autreRecherche.file.size.max: 6291456

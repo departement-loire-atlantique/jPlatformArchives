@@ -4,12 +4,13 @@
 jcmsplugin.archives.form.vous-etes : Vous êtes
 jcmsplugin.archives.form.nom : Nom
 jcmsplugin.archives.form.prenom : Prénom
+jcmsplugin.archives.form.raisonSociale : Raison sociale
 jcmsplugin.archives.form.administration : Administration
 jcmsplugin.archives.form.direction : Direction
 jcmsplugin.archives.form.service : Service / Unité
 jcmsplugin.archives.form.coordonnees : Vos coordonnées
 jcmsplugin.archives.form.adresse : Adresse
-jcmsplugin.archives.form.complementAdresse : complément d'adresse
+jcmsplugin.archives.form.complementAdresse : Complément d'adresse
 jcmsplugin.archives.form.codePostal : Code postal
 jcmsplugin.archives.form.ville : Ville
 jcmsplugin.archives.form.telephone : Téléphone
@@ -20,6 +21,7 @@ jcmsplugin.archives.form.dossier : N° du dossier (1 à 4 chiffres)
 jcmsplugin.archives.form.natureRecherche : Nature de la recherche
 jcmsplugin.archives.form.dateVersement : Date de versement
 jcmsplugin.archives.form.dateRetour : Retour du dossier prévu le
+jcmsplugin.archives.form.mentionsConsultationReproduction : Je reconnais avoir pris connaissance des <a href="https://archives.loire-atlantique.fr/conditions-consultation-reproduction" target="blank">conditions de consultation et de reproduction</a>. 
 jcmsplugin.archives.form.boutonEnvoi.title : Envoyer votre demande aux Archives départementales
 jcmsplugin.socle.form.contact-mail.origine : Archives départementales de Loire-Atlantique
 
@@ -41,7 +43,8 @@ jcmsplugin.archives.form.motivations: Mention texte libre
 jcmsplugin.archives.form.motifDivorce: Divorce
 jcmsplugin.archives.form.motifAdoption: Adoption
 jcmsplugin.archives.form.motifAutre: Autre
-jcmsplugin.archives.form.piece-jointe: Pièce jointe 
+jcmsplugin.archives.form.piece-jointe1: Pièce jointe n°1
+jcmsplugin.archives.form.piece-jointe2: Pièce jointe n°2
 
 jcmsplugin.archives.form.votre-demande : Votre demande
 
@@ -50,11 +53,12 @@ jcmsplugin.archives.form.ctrl.datesJugement: Merci de renseigner une date (anné
 
 jcmsplugin.archives.form.exemple.anneeJugement: Exemple : 1939
 jcmsplugin.archives.form.exemple.dateJugement: Exemple : 25/03/1939
-jcmsplugin.archives.form.autreRecherche.exemple.formats: Formats : PDF ou image, taille max. : 6Mo
+jcmsplugin.archives.form.autreRecherche.exemple.formats: Formats : pdf, docx, odt, xlsx, ods, png, jpg, taille max. : 6Mo
 
 # ------------------------------------------------------------
 #  Email
 # ------------------------------------------------------------
+jcmsplugin.archives.email.objet.prefixe: Archives de Loire-Atlantique - {0}
 jcmsplugin.archives.email.communication.objet: Votre demande de communication administrative
 jcmsplugin.archives.email.communication.titre: Communication administrative
 jcmsplugin.archives.email.communication.sous-titre: Voici le contenu de votre demande faite le 

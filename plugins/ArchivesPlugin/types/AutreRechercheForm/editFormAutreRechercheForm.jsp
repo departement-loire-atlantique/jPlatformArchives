@@ -49,7 +49,7 @@
 		String formAction = "plugins/SoclePlugin/jsp/forms/doFormDecodeParams.jsp";
 		%>
 		<form action='<%= formAction %>' method='post' name='editForm' accept-charset="UTF-8" enctype="multipart/form-data">
-
+		    
 		    <%
 		    request.setAttribute("formHandler", formHandler);
 		    %>

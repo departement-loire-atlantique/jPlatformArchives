@@ -9,6 +9,7 @@ import org.apache.log4j.Logger;
 
 import com.jalios.jcms.Channel;
 import com.jalios.jcms.JcmsUtil;
+import com.jalios.jcms.mail.MailMessage;
 import com.jalios.util.Util;
 
 import fr.cg44.plugin.socle.MailUtils;
@@ -32,13 +33,14 @@ public final class ArchivesMailUtils {
    * Envoi de l'email du formulaire de communication administrative (site Archives)
    */
   public static boolean envoiMailCommunicationAdministrativeArchives(CommunicationForm form) {
+    String userLang = Channel.getChannel().getCurrentUserLang();
     
     boolean result = false;
     String jsp = "/plugins/SoclePlugin/jsp/mail/formulaireArchivesCommunicationAdministrativeTemplate.jsp";
     String date = SocleUtils.formatDate("dd/MM/yy HH:mm", new Date());
     
     // Objet
-    String objet = JcmsUtil.glpd("jcmsplugin.archives.email.communication.objet");
+    String objet = JcmsUtil.glp(userLang, "jcmsplugin.archives.email.objet.prefixe", JcmsUtil.glpd("jcmsplugin.archives.email.communication.objet"));
     
     // Destinataire / emetteur
     String emailTo = channel.getProperty("jcmsplugin.archives.form.mailTo");
@@ -91,13 +93,14 @@ public final class ArchivesMailUtils {
    * Envoi de l'email du formulaire de recherche de jugement (site Archives)
    */
   public static boolean envoiMailRechercheJugementArchives(RechercheJugementForm form) {
+    String userLang = Channel.getChannel().getCurrentUserLang();
     
     boolean result = false;
     String jsp = "/plugins/SoclePlugin/jsp/mail/formulaireArchivesRechercheJugementTemplate.jsp";
     String date = SocleUtils.formatDate("dd/MM/yy HH:mm", new Date());
     
     // Objet
-    String objet = JcmsUtil.glpd("jcmsplugin.archives.email.jugement.objet");
+    String objet = JcmsUtil.glp(userLang, "jcmsplugin.archives.email.objet.prefixe", JcmsUtil.glpd("jcmsplugin.archives.email.jugement.objet"));
     
     // Destinataire / emetteur
     String emailTo = channel.getProperty("jcmsplugin.archives.form.mailTo");
@@ -152,28 +155,31 @@ public final class ArchivesMailUtils {
    * Envoi de l'email du formulaire autre recherche (site Archives)
    */
   public static boolean envoiMailAutreRechercheArchives(AutreRechercheForm form, ArrayList<File> fichiers) {
+    String userLang = Channel.getChannel().getCurrentUserLang();
     
     boolean result = false;
     String jsp = "/plugins/SoclePlugin/jsp/mail/formulaireArchivesAutreRechercheTemplate.jsp";
     String date = SocleUtils.formatDate("dd/MM/yy HH:mm", new Date());
     
     // Objet
-    String objet = JcmsUtil.glpd("jcmsplugin.archives.email.autre-recherche.objet");
+    String objet = JcmsUtil.glp(userLang, "jcmsplugin.archives.email.objet.prefixe", JcmsUtil.glpd("jcmsplugin.archives.email.autre-recherche.objet"));
     
     // Destinataire / emetteur
     String emailTo = channel.getProperty("jcmsplugin.archives.form.mailTo");
     String emailFrom = channel.getProperty("jcmsplugin.archives.form.from");
     
     // CC
-    ArrayList<String> listeEmailCC = new ArrayList<>();
+    ArrayList<String> listeEmailBCC = new ArrayList<>();
     if(Util.notEmpty(form.getCourriel())){
-      listeEmailCC.add(form.getCourriel());
+      listeEmailBCC.add(form.getCourriel());
     }
     
     // Contenu
     HashMap<Object, Object> parametersMap = new HashMap<Object, Object>();
     parametersMap.put("nom", form.getNom());
     parametersMap.put("prenom", form.getPrenom());
+    parametersMap.put("raisonSociale", form.getRaisonSociale());
+    parametersMap.put("email", form.getCourriel());
     parametersMap.put("adresse", form.getAdresse());
     parametersMap.put("complementAdresse", form.getComplementDadresse());
     parametersMap.put("codePostal", form.getCodePostal());
@@ -185,7 +191,7 @@ public final class ArchivesMailUtils {
 
     if (Util.notEmpty(emailFrom) && Util.notEmpty(emailTo)) {
       try {
-        MailUtils.sendMail(objet, null, emailFrom, emailTo, listeEmailCC, fichiers, jsp, parametersMap);
+        sendMail(objet, null, emailFrom, emailTo, listeEmailBCC, fichiers, jsp, parametersMap);
         result = true;
       } catch (Exception e) {
         result = false;
@@ -205,6 +211,51 @@ public final class ArchivesMailUtils {
     }
 
     return result;
+  } 
+  
+  /**
+   * Envoi de mail
+   * Note SGU 28/12/2023 : méthode reprise de Socle pour livraison urgente uniquement du module Archives.
+   * Il faudra réintégrer cette méthode dans Socle et la faire la + générique possible avec toutes les options (CC, BCC, fichiers etc)
+   * 
+   * @param subject Objet du mail
+   * @param content Contenu du mail
+   * @param emailFrom Email de l'expéditeur
+   * @param emailTo Email du destinataire
+   * @param listeEmailBCC Emails des destinataires en BCC (Blind Carbon Copy)
+   * @param listePieceJointe Liste des pièces jointes
+   * @param jsp La JSP du template de mail à envoyer
+   * @param parametersMap La map contenant les données à placer dans le template JSP
+   */
+  @SuppressWarnings("deprecation")
+  public static void sendMail(String subject, String content, String emailFrom, String emailTo, ArrayList<String> listeEmailBCC, ArrayList<File> listePieceJointe, String jsp, HashMap<Object, Object> parametersMap)
+      throws javax.mail.MessagingException {
+
+    MailMessage mail = new MailMessage(JcmsUtil.glp("jcmsplugin.socle.form.contact-mail.origine", "fr"));
+    mail.setFrom(emailFrom);
+    mail.setTo(emailTo);
+    
+    if(Util.notEmpty(listeEmailBCC)) {
+      for(String itEmailBCC : listeEmailBCC) {
+        mail.addBcc(itEmailBCC);
+      }
+    }
+    mail.setSubject(subject);
+    
+
+    if(Util.notEmpty(content)) {
+      mail.setContentText(Util.html2Ascii(content));
+    }else if(Util.notEmpty(jsp)) {
+      mail.setContentHtmlFromJsp(jsp, channel.getDefaultAdmin(), "fr", parametersMap, null);
+    }
+
+    if (Util.notEmpty(listePieceJointe)) {
+      for (File f : listePieceJointe) {
+        mail.addFile(f);
+      }
+    }
+    // Envoi du mail
+    mail.send();
   }  
 
 }

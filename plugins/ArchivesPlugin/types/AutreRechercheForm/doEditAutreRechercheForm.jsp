@@ -33,6 +33,17 @@
                             </div>
                         </div>
                     </li>
+                    
+                    <%-- Raison sociale ------------------------------------------------------------ --%>
+                    <% String raisonSocialeLabel = glp("jcmsplugin.archives.form.raisonSociale"); %>
+                    <li class="col-12">
+                        <div class="ds44-form__container">
+                            <div class="ds44-posRel">
+                                <label for="form-element-raisonSociale" class="ds44-formLabel"><span class="ds44-labelTypePlaceholder"><span><%= raisonSocialeLabel %></span></span></label>
+                                <input type="text" id="form-element-raisonSociale" name="raisonSociale" class="ds44-inpStd"/><button class="ds44-reset" type="button"><i class="icon icon-cross icon--sizeL" aria-hidden="true"></i><span class="visually-hidden"><%= glp("jcmsplugin.socle.facette.effacer-contenu-champ", raisonSocialeLabel) %></span></button>
+                            </div>
+                        </div>
+                    </li>                    
 
                     <%-- Adresse ------------------------------------------------------------ --%>
                     <% String adresseLabel = glp("jcmsplugin.archives.form.adresse"); %>
@@ -40,7 +51,7 @@
                         <div class="ds44-form__container">
                             <div class="ds44-posRel">
                                 <label for="form-element-adresse" class="ds44-formLabel"><span class="ds44-labelTypePlaceholder"><span><%= adresseLabel %><sup aria-hidden="true">*</sup></span></span></label>
-                                <input type="text" id="form-element-adresse" name="adresse" class="ds44-inpStd" title="<%= glp("jcmsplugin.socle.facette.champ-obligatoire.title", adresseLabel) %>" required autocomplete="address-line1"    /><button class="ds44-reset" type="button"><i class="icon icon-cross icon--sizeL" aria-hidden="true"></i><span class="visually-hidden"><%= glp("jcmsplugin.socle.facette.effacer-contenu-champ", adresseLabel) %></span></button>
+                                <input type="text" id="form-element-adresse" name="adresse" class="ds44-inpStd" title="<%= glp("jcmsplugin.socle.facette.champ-obligatoire.title", adresseLabel) %>" required /><button class="ds44-reset" type="button"><i class="icon icon-cross icon--sizeL" aria-hidden="true"></i><span class="visually-hidden"><%= glp("jcmsplugin.socle.facette.effacer-contenu-champ", adresseLabel) %></span></button>
                             </div>
                         </div>
                     </li>
@@ -51,7 +62,7 @@
                         <div class="ds44-form__container">
                             <div class="ds44-posRel">
                                 <label for="form-element-complementAdresse" class="ds44-formLabel"><span class="ds44-labelTypePlaceholder"><span><%= complementAdresseLabel %></span></span></label>
-                                <input type="text" id="form-element-complementAdresse" name="complementAdresse" class="ds44-inpStd"/><button class="ds44-reset" type="button"><i class="icon icon-cross icon--sizeL" aria-hidden="true"></i><span class="visually-hidden"><%= glp("jcmsplugin.socle.facette.effacer-contenu-champ", complementAdresseLabel) %></span></button>
+                                <input type="text" id="form-element-complementAdresse" name="complementDadresse" class="ds44-inpStd"/><button class="ds44-reset" type="button"><i class="icon icon-cross icon--sizeL" aria-hidden="true"></i><span class="visually-hidden"><%= glp("jcmsplugin.socle.facette.effacer-contenu-champ", complementAdresseLabel) %></span></button>
                             </div>
                         </div>
                     </li>
@@ -135,21 +146,21 @@
                         </li>
                         
                         <%-- Justificatif ------------------------------------------------------------ --%>
-						<% String justificatifLabel = glp("jcmsplugin.archives.form.piece-jointe");%>
+						<% String justificatif1Label = glp("jcmsplugin.archives.form.piece-jointe1");%>
 						<li class="col-12">
 							<div class="ds44-mb3">
 							    <div class="ds44-form__container">
 							        <div class="ds44-posRel">
-							            <label id="label-form-element-justificatif" for="form-element-justificatif" class="ds44-formLabel">
-							                <span class="ds44-labelTypePlaceholder"><span><%= justificatifLabel %></span></span>
+							            <label id="label-form-element-justificatif1" for="form-element-justificatif1" class="ds44-formLabel">
+							                <span class="ds44-labelTypePlaceholder"><span><%= justificatif1Label %></span></span>
 							            </label>
 							            
 							            <div class="ds44-file__shape ds44-inpStd">
-							                <input type="file" id="form-element-justificatif" name="justificatif" title="<%= glp("jcmsplugin.socle.facette.champ-obligatoire.title", justificatifLabel) %>" data-file-extensions="doc,docx,png,gif,jpg,jpeg,pdf" aria-describedby="explanation-form-element-justificatif"  />
-							                <div id="file-display-form-element-justificatif" class="ds44-fileDisplay"></div>
+							                <input type="file" id="form-element-justificatif1" name="justificatif1" title="<%= glp("jcmsplugin.socle.facette.champ-obligatoire.title", justificatif1Label) %>" data-file-extensions="xls,xlsx,doc,docx,ods,odt,png,gif,jpg,jpeg,pdf" aria-describedby="explanation-form-element-justificatif1"  />
+							                <div id="file-display-form-element-justificatif1" class="ds44-fileDisplay"></div>
 							            </div>
-							            <button class="ds44-reset" type="button" aria-describedby="label-form-element-justificatif">
-							              <i class="icon icon-cross icon--sizeL" aria-hidden="true"></i><span class="visually-hidden"><%= glp("jcmsplugin.socle.facette.effacer-contenu-champ", justificatifLabel) %></span>
+							            <button class="ds44-reset" type="button" aria-describedby="label-form-element-justificatif1">
+							              <i class="icon icon-cross icon--sizeL" aria-hidden="true"></i><span class="visually-hidden"><%= glp("jcmsplugin.socle.facette.effacer-contenu-champ", justificatif1Label) %></span>
 							            </button>
 							        
 							            <span class="ds44-file" aria-hidden="true"><i class="icon icon-directory icon--medium" aria-hidden="true"></i></span>
@@ -158,12 +169,55 @@
 							    
 							        <div class="ds44-field-information" aria-live="polite">
 							            <ul class="ds44-field-information-list ds44-list">
-							                <li id="explanation-form-element-justificatif" class="ds44-field-information-explanation"><%= glp("jcmsplugin.archives.form.autreRecherche.exemple.formats") %></li>
+							                <li id="explanation-form-element-justificatif1" class="ds44-field-information-explanation"><%= glp("jcmsplugin.archives.form.autreRecherche.exemple.formats") %></li>
 							            </ul>
 							        </div>
 							    
 							    </div>
 							</div>
+                        </li>
+                        
+                        <%-- Justificatif ------------------------------------------------------------ --%>
+                        <% String justificatif2Label = glp("jcmsplugin.archives.form.piece-jointe2");%>
+                        <li class="col-12">
+                            <div class="ds44-mb3">
+                                <div class="ds44-form__container">
+                                    <div class="ds44-posRel">
+                                        <label id="label-form-element-justificatif2" for="form-element-justificatif2" class="ds44-formLabel">
+                                            <span class="ds44-labelTypePlaceholder"><span><%= justificatif2Label %></span></span>
+                                        </label>
+                                        
+                                        <div class="ds44-file__shape ds44-inpStd">
+                                            <input type="file" id="form-element-justificatif2" name="justificatif2" title="<%= glp("jcmsplugin.socle.facette.champ-obligatoire.title", justificatif2Label) %>" data-file-extensions="xls,xlsx,doc,docx,ods,odt,png,gif,jpg,jpeg,pdf" aria-describedby="explanation-form-element-justificatif2"  />
+                                            <div id="file-display-form-element-justificatif2" class="ds44-fileDisplay"></div>
+                                        </div>
+                                        <button class="ds44-reset" type="button" aria-describedby="label-form-element-justificatif2">
+                                          <i class="icon icon-cross icon--sizeL" aria-hidden="true"></i><span class="visually-hidden"><%= glp("jcmsplugin.socle.facette.effacer-contenu-champ", justificatif2Label) %></span>
+                                        </button>
+                                    
+                                        <span class="ds44-file" aria-hidden="true"><i class="icon icon-directory icon--medium" aria-hidden="true"></i></span>
+                                    
+                                    </div>
+                                
+                                    <div class="ds44-field-information" aria-live="polite">
+                                        <ul class="ds44-field-information-list ds44-list">
+                                            <li id="explanation-form-element-justificatif2" class="ds44-field-information-explanation"><%= glp("jcmsplugin.archives.form.autreRecherche.exemple.formats") %></li>
+                                        </ul>
+                                    </div>
+                                
+                                </div>
+                            </div>
+                        </li>                        
+                        
+                        <%-- Checkbox de confirmation ------------------------------------------------------------ --%>
+                        <% String confirmationLabel = glp("jcmsplugin.archives.form.motivations"); %>
+                        <li class="col-12">
+	                        <div id="form-element-confirmation" data-name="confirmation" class="ds44-form__checkbox_container ds44-form__container" data-required="true">
+	                            <div class="ds44-form__container ds44-checkBox-radio_list inbl">
+	                                <input type="checkbox" id="name-check-form-element-confirmation" name="confirmation" value="true" class="ds44-checkbox" required aria-describedby="mandatory-message-form-element-confirmation" />
+	                                <label for="name-check-form-element-confirmation" class="ds44-boxLabel" id="name-check-label-form-element-confirmation"><%= glp("jcmsplugin.archives.form.mentionsConsultationReproduction") %><sup aria-hidden="true">*</sup></label>
+	                            </div>
+	                        </div>
                         </li>
                         
                     </ul>
