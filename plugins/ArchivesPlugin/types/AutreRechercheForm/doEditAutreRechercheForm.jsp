@@ -147,7 +147,7 @@
                         
                         <%-- Justificatif ------------------------------------------------------------ --%>
 						<% String justificatif1Label = glp("jcmsplugin.archives.form.piece-jointe1");%>
-						<li class="col-12">
+						<li class="col-12" style="display:none;">
 							<div class="ds44-mb3">
 							    <div class="ds44-form__container">
 							        <div class="ds44-posRel">
@@ -179,7 +179,7 @@
                         
                         <%-- Justificatif ------------------------------------------------------------ --%>
                         <% String justificatif2Label = glp("jcmsplugin.archives.form.piece-jointe2");%>
-                        <li class="col-12">
+                        <li class="col-12" style="display:none;">
                             <div class="ds44-mb3">
                                 <div class="ds44-form__container">
                                     <div class="ds44-posRel">

@@ -165,14 +165,13 @@ public final class ArchivesMailUtils {
     String objet = JcmsUtil.glp(userLang, "jcmsplugin.archives.email.objet.prefixe", JcmsUtil.glpd("jcmsplugin.archives.email.autre-recherche.objet"));
     
     // Destinataire / emetteur
-    String emailTo = channel.getProperty("jcmsplugin.archives.form.mailTo");
+    String emailUsager = form.getCourriel();
+    String emailArchives = channel.getProperty("jcmsplugin.archives.form.mailTo");
     String emailFrom = channel.getProperty("jcmsplugin.archives.form.from");
     
-    // CC
+    // BCC (mail des Archives en copie cachée)
     ArrayList<String> listeEmailBCC = new ArrayList<>();
-    if(Util.notEmpty(form.getCourriel())){
-      listeEmailBCC.add(form.getCourriel());
-    }
+    listeEmailBCC.add(emailArchives);
     
     // Contenu
     HashMap<Object, Object> parametersMap = new HashMap<Object, Object>();
@@ -189,9 +188,9 @@ public final class ArchivesMailUtils {
     parametersMap.put("demande", form.getDemande());
     parametersMap.put("date", date);
 
-    if (Util.notEmpty(emailFrom) && Util.notEmpty(emailTo)) {
+    if (Util.notEmpty(emailFrom) && Util.notEmpty(emailUsager)) {
       try {
-        sendMail(objet, null, emailFrom, emailTo, listeEmailBCC, fichiers, jsp, parametersMap);
+        sendMail(objet, null, emailFrom, emailUsager, listeEmailBCC, fichiers, jsp, parametersMap);
         result = true;
       } catch (Exception e) {
         result = false;
